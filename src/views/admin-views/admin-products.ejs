@@ -1,0 +1,138 @@
+<div class="container-content ">
+    <div class="name-page ">
+        <div class="container-2">
+            Sản phẩm
+        </div>
+    </div>
+    <div class="content ">
+        <div class="white-box">
+            <div class="header-table">
+                <div class="search">
+                    <input type="text" placeholder="tìm theo tên.." value="<%= data.nameSearch %>">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+                <div class="table-right">
+                    <% if(data.genderSearch=="Nam" ){ %>
+                        <select name="gender" id="gender-search">
+                            <option value="">--giới tính--</option>
+                            <option value="Nam" selected>Nam
+                            </option>
+                            <option value="Nữ">Nữ</option>
+                            <option value="Unisex">Unisex</option>
+                        </select>
+                        <% }else if(data.genderSearch=="Nữ" ){ %>
+                            <select name="gender" id="gender-search">
+                                <option value="">--giới tính--</option>
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ" selected>Nữ</option>
+                                <option value="Unisex">Unisex</option>
+                            </select>
+                            <% }else if(data.genderSearch=="Unisex" ){ %>
+                                <select name="gender" id="gender-search">
+                                    <option value="">--giới tính--</option>
+                                    <option value="Nam">Nam</option>
+                                    <option value="Nữ">Nữ</option>
+                                    <option value="Unisex" selected>Unisex</option>
+                                </select>
+                                <% } else{ %>
+                                    <select name="gender" id="gender-search">
+                                        <option value="" selected>--giới tính--</option>
+                                        <option value="Nam">Nam
+                                        </option>
+                                        <option value="Nữ">Nữ</option>
+                                        <option value="Unisex">Unisex</option>
+                                    </select>
+                                    <% } %>
+                                        <div class="button-add">
+                                            <a href="/admin/products/add-product">Thêm sản phẩm</a>
+                                        </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="border-top-0">#</th>
+                            <th class="border-top-0">Ảnh</th>
+                            <th class="border-top-0">Tên</th>
+                            <th class="border-top-0">Giá</th>
+                            <th class="border-top-0">Giới tính</th>
+                            <th class="border-top-0">Độ hot</th>
+                            <th class="border-top-0">Trạng thái</th>
+                            <th class="border-top-0">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data.products.forEach((product, index)=>{ %>
+                            <tr>
+                                <td>
+                                    <%= data.page*5 - 5 + index+1 %>
+                                </td>
+                                <td>
+                                    <img src="<%= product.image %>" alt="<%= product.name %>">
+                                </td>
+                                <td>
+                                    <%= product.name %>
+                                </td>
+                                <td>
+                                    <%= product.cost %>
+                                </td>
+                                <td>
+                                    <%= product.gender %>
+                                </td>
+                                <td>
+                                    <%= product.hot %>
+                                </td>
+                                <td>
+                                    <% if(product.status==true){ %>
+                                        <select name="status" id="">
+                                            <option value="true" selected>Có hàng</option>
+                                            <option value="false">Hết hàng</option>
+                                        </select>
+                                        <% } else{ %>
+                                            <select name="status" id="">
+                                                <option value="true">Có hàng</option>
+                                                <option value="false" selected>Hết hàng</option>
+                                            </select>
+                                            <% } %>
+
+                                </td>
+                                <td class="action">
+                                    <div class="edit-product">
+                                        <a href="/admin/products/<%= product._id %>"><i class="fa fa-pencil-square-o"
+                                                aria-hidden="true"></i></a>
+                                    </div>
+                                    <div class="delete-product">
+                                        <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <% }) %>
+
+
+
+
+
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <ul>
+                        <% for(let i=0; i< data.lengthPage; i++){ %>
+                            <% if(data.page==i+1){ %>
+                                <li class="disable"><a
+                                        href="/admin/products?page=<%= i+1 %><%= data.name %><%= data.gender %>">
+                                        <%= i+1 %>
+                                    </a></li>
+                                <% } else{ %>
+                                    <li><a href="/admin/products?page=<%= i+1 %><%= data.name %><%= data.gender %>">
+                                            <%= i+1 %>
+                                        </a></li>
+                                    <% } %>
+                                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

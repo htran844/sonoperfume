@@ -1,12 +1,13 @@
 const cloudi = require("../configs/cloudinaryCF");
 const delFile = require("../middlewares/deleteFile");
-
+const { deleteProductFullByID } = require("../services/_productFullService");
 const {
   createProduct,
   updateProductByID,
   deleteProductByID,
   changeStatus,
   getOneByID,
+  getAllProduct,
 } = require("../services/_productService");
 module.exports.createProduct = async (req, res) => {
   try {
@@ -63,9 +64,11 @@ module.exports.deleteProduct = async (req, res) => {
   try {
     const _id = req.params.id;
     let result = await deleteProductByID(_id);
+
     if (!result) {
       return res.status(500).json({ status: "fail", data: "" });
     } else {
+      let result2 = await deleteProductFullByID(result.productFull);
       return res.status(200).json({ status: "success", data: result });
     }
   } catch (error) {
@@ -89,6 +92,21 @@ module.exports.getOneByID = async (req, res) => {
   try {
     const _id = req.params.id;
     let result = await getOneByID(_id);
+    if (!result) {
+      return res.status(500).json({ status: "fail", data: "" });
+    } else {
+      return res.status(200).json({ status: "success", data: result });
+    }
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getAllProductAdmin = async (req, res) => {
+  try {
+    let page = req.query.page;
+    delete req.query.page;
+    let result = await getAllProduct(req.query, page);
+
     if (!result) {
       return res.status(500).json({ status: "fail", data: "" });
     } else {

@@ -1,0 +1,183 @@
+<div class="container-content ">
+    <div class="name-page ">
+        <div class="container-2">
+            Chi tiết sản phẩm
+        </div>
+    </div>
+    <div class="content ">
+        <div class="content-main container-2">
+            <div class="card-form">
+                <form class="form-add" id="form">
+                    <div class="form-group">
+                        <label class="label-group">Tên sản phẩm</label>
+                        <div class="input-control">
+                            <input type="text" id="name" value="<%= data.name %>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-group">Slug sản phẩm</label>
+                        <div class="input-control">
+                            <input type="text" id="slug" value="<%= data.slug %>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-group">Giới tính</label>
+                        <% if(data.gender==='Nam' ){ %>
+                            <div class="input-control">
+                                <select name="gender" id="gender">
+                                    <option value="Nam" selected>Nam</option>
+                                    <option value="Nữ">Nữ</option>
+                                    <option value="Unisex">Unisex</option>
+                                </select>
+                            </div>
+                            <%} else if(data.gender==='Nữ' ){%>
+                                <div class="input-control">
+                                    <select name="gender" id="gender">
+                                        <option value="Nam">Nam</option>
+                                        <option value="Nữ" selected>Nữ</option>
+                                        <option value="Unisex">Unisex</option>
+                                    </select>
+                                </div>
+                                <%} else{%>
+                                    <div class="input-control">
+                                        <select name="gender" id="gender">
+                                            <option value="Nam">Nam</option>
+                                            <option value="Nữ">Nữ</option>
+                                            <option value="Unisex" selected>Unisex</option>
+                                        </select>
+                                    </div>
+                                    <%}%>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-group">Độ hot</label>
+                        <div class="input-control">
+                            <input type="number" id="hot" value="<%= data.hot %>" placeholder="Điểm độ hot" min="1"
+                                max="20">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-group">Giá tiền</label>
+                        <div class="input-control">
+                            <input type="number" min="100000" id="cost" value="<%= data.cost %>" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-group" for="image">Chọn ảnh</label>
+                        <div class="input-control">
+                            <input type="file" id="image">
+                        </div>
+                        <div class="image-preview">
+                            <img src="<%= data.image %>" alt="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-group">Thương hiệu</label>
+                        <div class="input-control">
+                            <input type="text" id="thuongHieu" value="<%= data.thuongHieu %>" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-group">Nơi xuất xứ</label>
+                        <div class="input-control">
+                            <input type="text" id="xuatXu" value="<%= data.xuatXu %>" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-group">Năm phát hành</label>
+                        <div class="input-control">
+                            <input type="text" id="phatHanh" value="<%= data.phatHanh %>" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-group">Nhóm hương chính</label>
+                        <div class="input-control">
+                            <input type="text" id="nhomHuong" value="<%= data.nhomHuong %>" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-group">Phong cách</label>
+                        <div class="input-control">
+                            <input type="text" id="phongCach" value="<%= data.phongCach %>" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-group">Mùi hương đầu</label>
+                        <div class="input-control">
+                            <input type="text" id="huongDau" value="<%= data.huongDau %>" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-group">Mùi hương giữa</label>
+                        <div class="input-control">
+                            <input type="text" id="huongGiua" value="<%= data.huongGiua %>" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-group">Mùi hương cuối</label>
+                        <div class="input-control">
+                            <input type="text" id="huongCuoi" value="<%= data.huongCuoi %>" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-group">Mô tả về sản phẩm</label>
+                        <div class="input-control">
+                            <textarea name="" id="mota" required><%= data.mota %></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-group">Trạng thái</label>
+                        <div class="input-control">
+                            <% if(data.status===true ){ %>
+                                <select name="status" id="status">
+                                    <option value="true" selected>Có hàng</option>
+                                    <option value="false">Hết hàng</option>
+                                </select>
+                                <%} else {%>
+                                    <select name="status" id="status">
+                                        <option value="true">Có hàng</option>
+                                        <option value="false" selected>Hết hàng</option>
+                                    </select>
+                                    <%} %>
+
+                        </div>
+                    </div>
+                    <div class="product-full">
+                        <div class="fullseal">
+                            <label class="label-group">Fullseal</label>
+                            <input type="number" placeholder="dung tích" id="capaFullseal"
+                                value="<%= data.productFull.capaFullseal %>">
+                            <input type="number" placeholder="giá" id="costFullseal"
+                                value="<%= data.productFull.costFullseal %>">
+                            <% if(data.productFull.statusFullseal===true ){ %>
+                                <input type="checkbox" checked id="fullseal"> <label for="fullseal">Có
+                                    hàng</label>
+                                <%} else {%>
+                                    <input type="checkbox" id="fullseal"> <label for="fullseal">Có
+                                        hàng</label>
+                                    <%} %>
+
+                        </div>
+                        <div class="fulltester">
+                            <label class="label-group">Tester</label>
+                            <input type="number" placeholder="dung tích" id="capaTester"
+                                value="<%= data.productFull.capaTester %>">
+                            <input type="number" placeholder="giá" id="costTester"
+                                value="<%= data.productFull.costTester %>">
+                            <% if(data.productFull.statusTester===true ){ %>
+                                <input type="checkbox" checked id="fulltester"> <label for="fullseal">Có
+                                    hàng</label>
+                                <%} else {%>
+                                    <input type="checkbox" id="fulltester"> <label for="fullseal">Có
+                                        hàng</label>
+                                    <%} %>
+
+                        </div>
+                    </div>
+                    <div class="button-submit">
+                        <button type="submit">Cập nhật</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

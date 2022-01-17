@@ -1,0 +1,95 @@
+.content .white-box {
+  margin: 0 30px;
+  background-color: #fff;
+}
+.header-table {
+  display: flex;
+  justify-content: space-between;
+}
+.header-table .search {
+  padding: 20px;
+  position: relative;
+}
+.header-table .search input {
+  height: 25px;
+  padding: 5px 10px;
+  border-radius: 24px;
+  border: 1px solid #a3a1a1;
+  outline: none;
+}
+.header-table .search i {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+.header-table .table-right {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.header-table .table-right select {
+  border-radius: 12px;
+  padding: 0 10px;
+  outline: none;
+  border: 1px solid #a3a1a1;
+  margin: 0 20px;
+}
+.header-table .table-right .button-add a {
+  height: 30px;
+  padding: 5px 10px;
+  border-radius: 12px;
+  border: 1px solid #a3a1a1;
+  cursor: pointer;
+  background-color: #7ace4c;
+  text-decoration: none;
+  color: #fff;
+}
+.header-table .table-right .button-add a:hover {
+  opacity: 0.8;
+}
+.table-responsive .table {
+  width: 95%;
+  border-collapse: collapse;
+  margin: auto;
+}
+.table-responsive .table th,
+td {
+  border-bottom: 1px solid #a3a1a1;
+  padding: 5px 0;
+}
+.table-responsive .table img {
+  width: 50px;
+}
+.table-responsive .table select {
+  border: 1px solid #a3a1a1;
+  padding: 5px;
+  outline: none;
+  border-radius: 4px;
+}
+.table-responsive .table .action div {
+  display: inline-block;
+  margin: 0 10px;
+}
+.table-responsive .table a {
+  font-size: 16px;
+  color: #313131;
+}
+.pagination {
+  padding: 10px 0;
+}
+.pagination ul {
+  display: flex;
+  justify-content: center;
+}
+.pagination ul li {
+  list-style: none;
+  border: 1px solid #a3a1a1;
+  border-radius: 2px;
+
+  margin: 0 4px;
+}
+.pagination ul li a {
+  text-decoration: none;
+  color: #313131;
+  padding: 0 5px;
+}

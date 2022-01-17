@@ -23,3 +23,10 @@ exports.deleteProductFullByID = async (_id) => {
     throw error;
   }
 };
+exports.getProductFullById = async (_id) => {
+  try {
+    return await ProductFullModel.findById(_id);
+  } catch (error) {
+    throw error;
+  }
+};

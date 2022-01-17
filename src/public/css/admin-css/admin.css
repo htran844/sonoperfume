@@ -1,0 +1,128 @@
+.disable a {
+  pointer-events: none;
+  color: #a3a1a1 !important;
+}
+.main-wraper {
+  width: 100%;
+  overflow: hidden;
+}
+.container-header {
+  width: 95%;
+  margin: auto;
+}
+.container {
+  width: 100%;
+  margin: auto;
+}
+.header {
+  height: 60px;
+  background-color: #313131;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  line-height: 60px;
+}
+.navbar-collapse {
+  display: flex;
+  justify-content: space-between;
+}
+.navbar-collapse .image-admin img {
+  width: 30px;
+  border-radius: 50%;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+.header .navbar .navbar-header a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+.navbar-collapse .name-admin span {
+  color: white;
+}
+section {
+  display: flex;
+  justify-content: space-between;
+}
+aside {
+  width: 180px;
+  background-color: white;
+  -webkit-box-shadow: 1px 0px 20px rgb(0 0 0 / 8%);
+  box-shadow: 1px 0px 20px rgb(0 0 0 / 8%);
+}
+aside nav ul {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+aside nav ul li {
+  width: 180px;
+  list-style: none;
+  background-color: white;
+  padding: 15px;
+  margin: 0;
+  cursor: pointer;
+}
+aside nav ul li:hover {
+  background: rgba(0, 0, 0, 0.07);
+}
+aside nav ul li a {
+  text-decoration: none;
+  color: #313131;
+  padding: 15px;
+}
+aside nav ul li a i {
+  margin-right: 5px;
+}
+article {
+  background-color: #eef5f9;
+  width: 100%;
+}
+footer {
+  padding: 20px 30px;
+  background-color: #fff;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+}
+.container-2 {
+  width: 95%;
+  margin: auto;
+}
+article .container-content .name-page {
+  height: 60px;
+  line-height: 60px;
+  background-color: #fff;
+  font-weight: 700;
+  font-size: 24px;
+}
+article .list-box {
+  display: flex;
+  justify-content: space-between;
+}
+article .list-box .white-box {
+  padding: 40px;
+  margin: 30px;
+  background-color: #fff;
+}
+article .list-box .white-box .box {
+  display: flex;
+  justify-content: space-between;
+  width: 180px;
+  height: 80px;
+  line-height: 80px;
+}
+article .list-box .white-box .box a {
+  text-decoration: none;
+  color: #313131;
+  font-weight: 700;
+  font-size: 20px;
+}
+article .list-box .white-box .box > span {
+  color: orangered;
+  font-weight: 700;
+  font-size: 20px;
+}

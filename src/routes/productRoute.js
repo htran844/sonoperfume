@@ -24,4 +24,5 @@ router.delete(
 router.delete("/api/delete-product/:id", productController.deleteProduct);
 router.get("/api/change-status/:id", productController.changeStatus);
 router.get("/api/get-one-by-id/:id", productController.getOneByID);
+router.get("/api/get-all", productController.getAllProductAdmin);
 module.exports = router;

@@ -1,0 +1,85 @@
+:root {
+  --blue: #2962ff;
+  --indigo: #6610f2;
+  --purple: #7460ee;
+  --pink: #e83e8c;
+  --red: #f62d51;
+  --orange: #fb8c00;
+  --yellow: #ffbc34;
+  --green: #36bea6;
+  --teal: #20c997;
+  --cyan: #4fc3f7;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --blue: #2962ff;
+  --indigo: #6610f2;
+  --purple: #7460ee;
+  --pink: #e83e8c;
+  --red: #f62d51;
+  --orange: #fb8c00;
+  --yellow: #ffbc34;
+  --green: #36bea6;
+  --teal: #20c997;
+  --cyan: #4fc3f7;
+  --white: #fff;
+  --gray: #6c757d;
+  --primary: #7460ee;
+  --secondary: #6c757d;
+  --success: #36bea6;
+  --info: #2962ff;
+  --warning: #ffbc34;
+  --danger: #f62d51;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --cyan: #4fc3f7;
+  --orange: #fb8c00;
+  --purple: #7460ee;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1600px;
+  --font-family-sans-serif: "Nunito Sans", sans-serif;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #3e5569;
+  text-align: left;
+  background-color: #eef5f9;
+}
