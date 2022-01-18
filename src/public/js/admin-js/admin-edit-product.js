@@ -1,29 +1,9 @@
-// search products
-let inputSearch = $(".header-table .search input");
-let selectGender = $("#gender-search");
-//get
-function getProducts() {
-  let name = inputSearch.val();
-  let nameSearch = `&name=${name}`;
-  if (name === "") {
-    nameSearch = "";
-  }
-  let gender = selectGender.val();
-  let genderSearch = `&gender=${gender}`;
-  if (gender === "") {
-    genderSearch = "";
-  }
-  window.location.href = `/admin/products?page=1${nameSearch}${genderSearch}`;
-}
-$(".header-table .search input").keyup(function (event) {
-  if (event.keyCode === 13) {
-    getProducts();
-  }
-});
-$("#gender-search").change(function () {
-  getProducts();
-});
-// add product
+//lay id san pham
+const url = window.location.href.split("/");
+const idProduct = url[url.length - 1];
+// lay id sp full
+const idProductFull = $("#idProductFull").attr("idFull");
+
 $("#image").change(function () {
   let files = this.files;
   const previewImages = $(".image-preview");
@@ -50,8 +30,8 @@ $("#form").submit(async function (e) {
     : (statusTester = false);
   // call ajax
   const resultProductFull = await $.ajax({
-    url: "/product/api/create-productfull",
-    method: "POST",
+    url: "/product/api/update-productfull/" + idProductFull,
+    method: "PUT",
     data: {
       capaFullseal,
       costFullseal,
@@ -61,11 +41,6 @@ $("#form").submit(async function (e) {
       statusTester,
     },
   });
-  if (resultProductFull) {
-    alertify.success("sản phẩm(full và tester) thành công");
-  } else {
-    alertify.error("Error");
-  }
   // tao bang product
   const name = $("#name").val();
   const slug = $("#slug").val();
@@ -104,8 +79,8 @@ $("#form").submit(async function (e) {
   form.append("status", status);
   form.append("productFull", productFull);
   const resultProduct = await $.ajax({
-    url: "/product/api/create-product",
-    method: "POST",
+    url: "/product/api/update-product/" + idProduct,
+    method: "PUT",
     timeout: 0,
     processData: false,
     mimeType: "multipart/form-data",
@@ -113,7 +88,7 @@ $("#form").submit(async function (e) {
     data: form,
   });
   if (resultProduct) {
-    alertify.success("Tạo sản phẩm thành công");
+    alertify.success("Cập nhật sản phẩm thành công");
   } else {
     alertify.error("Error");
   }

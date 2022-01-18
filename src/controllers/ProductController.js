@@ -39,6 +39,11 @@ module.exports.updateProduct = async (req, res) => {
     let _id = req.params.id;
     // nhan product
     let product = req.body;
+    // delete product.image
+    if (product.image) {
+      delete product.image;
+    }
+
     if (typeof req.file !== "undefined") {
       // nhan anh, up len cloud, luu link va xoa anh
       let imageName = req.file.originalname.slice(

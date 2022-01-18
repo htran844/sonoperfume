@@ -62,12 +62,13 @@ module.exports.getAdminAddProduct = async (req, res) => {
 module.exports.getAdminEditProduct = async (req, res) => {
   try {
     const _id = req.params.id;
-    let result = await getOneByID(_id);
 
+    let result = await getOneByID(_id);
+    // res.json(result);
     if (!result) {
-      res.render("admin-views/admin-base", {
-        content: "edit-product",
-        data: {},
+      res.status(400).json({
+        status: "fail",
+        message: "Lỗi server",
       });
     } else {
       res.render("admin-views/admin-base", {

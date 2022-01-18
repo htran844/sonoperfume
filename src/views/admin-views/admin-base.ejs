@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <link rel="stylesheet" href="../../public/css/admin-css/reset.css">
     <link rel="stylesheet" href="../../public/css/admin-css/admin.css">
 
@@ -50,11 +51,16 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="/public/js/admin-js/base.js"></script>
     <% if (content=='products' || content=='add-product' ) { %>
         <script src="/public/js/admin-js/admin-product.js">
         </script>
         <% } %>
+            <% if (content=='edit-product' ) { %>
+                <script src="/public/js/admin-js/admin-edit-product.js">
+                </script>
+                <% } %>
 
 </body>
 
