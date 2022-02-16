@@ -4,4 +4,6 @@ router.get("/", AdminController.getAdminDashboard);
 router.get("/products", AdminController.getAdminProduct);
 router.get("/products/add-product", AdminController.getAdminAddProduct);
 router.get("/products/:id", AdminController.getAdminEditProduct);
+router.get("/accounts", AdminController.getAdminAccounts);
+router.get("/info", AdminController.getAdminInfo);
 module.exports = router;

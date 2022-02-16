@@ -1,4 +1,5 @@
 const { getAllProduct, getOneByID } = require("../services/_productService");
+const { getListAccount } = require("../services/_accountService");
 module.exports.getAdminDashboard = async (req, res) => {
   try {
     res.render("admin-views/admin-base", {
@@ -19,6 +20,7 @@ module.exports.getAdminProduct = async (req, res) => {
     let name = req.query.name;
     let gender = req.query.gender;
     let result = await getAllProduct(req.query, page);
+
     let nameShow = `&name=${name}`;
     if (typeof name === "undefined") {
       nameShow = "";
@@ -76,6 +78,52 @@ module.exports.getAdminEditProduct = async (req, res) => {
         data: result,
       });
     }
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getAdminAccounts = async (req, res) => {
+  try {
+    // lay gia tri page de dung cho servie phan trang
+    let page = req.query.page;
+    // luc moi truy cap trang thi set page =1
+    if (typeof page === "undefined") {
+      page = 1;
+    }
+    let email = req.query.email;
+    // truyen req.query de truy van nhu 1 object
+    let result = await getListAccount(email, page);
+    //res.json(result);
+    // dung bien mailshow de tra ve giao dien dung cho pagination
+    let mailShow = `&email=${email}`;
+    if (typeof email === "undefined") {
+      mailShow = "";
+      email = "";
+    }
+    if (!result.accounts) {
+      console.log("loi");
+    } else {
+      res.render("admin-views/admin-base", {
+        content: "accounts",
+        data: {
+          lengthPage: result.lengthPage,
+          accounts: result.accounts,
+          page: page,
+          email: email,
+          emailSearch: mailShow,
+        },
+      });
+    }
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getAdminInfo = async (req, res) => {
+  try {
+    res.render("admin-views/info-base", {
+      content: "info",
+      data: {},
+    });
   } catch (error) {
     throw error;
   }

@@ -68,7 +68,7 @@ $("#form").submit(async function (e) {
   }
   // tao bang product
   const name = $("#name").val();
-  const slug = $("#slug").val();
+  const slug = $("#slug").val().replace(/\s+/g, "-").toLowerCase();
   const gender = $("#gender").val();
   const hot = $("#hot").val();
   const cost = $("#cost").val();
@@ -118,3 +118,25 @@ $("#form").submit(async function (e) {
     alertify.error("Error");
   }
 });
+async function deleteProduct(e) {
+  e.preventDefault();
+  const tr = e.target.closest("tr");
+  const idProduct = tr
+    .querySelector(".delete-product a")
+    .getAttribute("idProduct");
+
+  await alertify.confirm("Xác nhận muốn xóa sản phẩm?", async function (e) {
+    if (e) {
+      let delProduct = await $.ajax({
+        url: "/product/api/delete-product/" + idProduct,
+        method: "DELETE",
+      });
+      if (delProduct.status === "success") {
+        tr.remove();
+        alertify.success("Đã xóa 1 sản phẩm");
+      }
+    } else {
+      return;
+    }
+  });
+}

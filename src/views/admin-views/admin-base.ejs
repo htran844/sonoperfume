@@ -14,7 +14,7 @@
     <% if (content=='dashboard' ) { %>
         <link rel="stylesheet" href="/public/css/admin-css/dashboard.css" />
         <% } %>
-            <% if (content=='products' ) { %>
+            <% if (content=='products' || content=='accounts' ) { %>
                 <link rel="stylesheet" href="/public/css/admin-css/products.css" />
                 <% } %>
                     <% if (content=='add-product' || content=='edit-product' ) { %>
@@ -28,24 +28,35 @@
             <section class="container">
                 <%- include('aside') %>
                     <article>
+                        <!-- dashboard -->
                         <% if (content=='dashboard' ) { %>
                             <%- include ('admin-dashboard', {data: data}) -%>
                                 <% } %>
+                                    <!-- trang san pham -->
                                     <% if (content=='products' ) { %>
-                                        <%- include ('admin-products', {data: data}) -%>
+                                        <%- include ('products-view/admin-products', {data: data}) -%>
                                             <% } %>
+                                                <!-- trang them san pham -->
                                                 <% if (content=='add-product' ) { %>
-                                                    <%- include ('admin-add-product', {data: data}) -%>
+                                                    <%- include ('products-view/admin-add-product', {data: data}) -%>
                                                         <% } %>
+                                                            <!-- trang sua san pham -->
                                                             <% if (content=='edit-product' ) { %>
-                                                                <%- include ('admin-edit-product', {data: data}) -%>
+                                                                <%- include ('products-view/admin-edit-product', {data:
+                                                                    data}) -%>
                                                                     <% } %>
-                                                                        <footer class="footer text-center"> 2021 © Ample
-                                                                            Admin
-                                                                            brought to you by
-                                                                            <a
-                                                                                href="https://www.wrappixel.com/">hoangpro</a>
-                                                                        </footer>
+                                                                        <!-- trang tai khoan -->
+                                                                        <% if (content=='accounts' ) { %>
+                                                                            <%- include ('accounts-view/admin-accounts',
+                                                                                {data: data}) -%>
+                                                                                <% } %>
+                                                                                    <footer class="footer text-center">
+                                                                                        2021 © Ample
+                                                                                        Admin
+                                                                                        brought to you by
+                                                                                        <a
+                                                                                            href="https://www.wrappixel.com/">hoangpro</a>
+                                                                                    </footer>
                     </article>
             </section>
     </div>
@@ -61,6 +72,10 @@
                 <script src="/public/js/admin-js/admin-edit-product.js">
                 </script>
                 <% } %>
+                    <% if (content=='accounts' ) { %>
+                        <script src="/public/js/admin-js/accounts.js">
+                        </script>
+                        <% } %>
 
 </body>
 

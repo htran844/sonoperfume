@@ -1,0 +1,87 @@
+<div class="container-content ">
+    <div class="name-page ">
+        <div class="container-2">
+            Tài khoản khách hàng
+        </div>
+    </div>
+    <div class="content ">
+        <div class="white-box">
+            <div class="header-table">
+                <div class="search">
+                    <input type="text" placeholder="tìm theo email.." value="<%= data.nameSearch %>">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+                <div class="table-right">
+
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="border-top-0">#</th>
+                            <th class="border-top-0">Email</th>
+                            <th class="border-top-0">Tên</th>
+                            <th class="border-top-0">SDT</th>
+                            <th class="border-top-0">Địa chỉ</th>
+                            <th class="border-top-0">
+                                Show
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data.accounts.forEach((account, index)=>{ %>
+                            <tr>
+                                <td>
+                                    <%= data.page*5 - 5 + index+1 %>
+                                </td>
+
+                                <td>
+                                    <%= account.email %>
+                                </td>
+                                <td>
+                                    <%= account.name %>
+                                </td>
+                                <td>
+                                    <%= account.phone %>
+                                </td>
+                                <td>
+                                    <%= account.address %>
+                                </td>
+
+                                <td class="action">
+                                    <div class="edit-account">
+                                        <a href="/admin/accounts/<%= account._id %>"><i class="fa fa-pencil-square-o"
+                                                aria-hidden="true"></i></a>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <% }) %>
+
+
+
+
+
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <ul>
+                        <% for(let i=0; i< data.lengthPage; i++){ %>
+                            <% if(data.page==i+1){ %>
+                                <li class="disable"><a href="/admin/accounts?page=<%= i+1 %><%= data.email %>">
+                                        <%= i+1 %>
+                                    </a></li>
+                                <% } else{ %>
+                                    <li><a href="/admin/accounts?page=<%= i+1 %><%= data.email %>">
+                                            <%= i+1 %>
+                                        </a></li>
+                                    <% } %>
+                                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
