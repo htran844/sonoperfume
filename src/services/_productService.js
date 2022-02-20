@@ -100,3 +100,12 @@ exports.getAllProduct = async (data, page) => {
     throw error;
   }
 };
+exports.getProductHome = async (gender) => {
+  try {
+    return await ProductModel.find({ gender: gender })
+      .limit(8)
+      .sort({ hot: -1 });
+  } catch (error) {
+    throw error;
+  }
+};

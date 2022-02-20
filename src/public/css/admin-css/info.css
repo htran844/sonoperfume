@@ -42,4 +42,12 @@
 .button-submit button:hover {
   opacity: 0.8;
 }
+
+.slide-preview img {
+  width: 100px;
+}
+
+.thongbao-preview img {
+  width: 100px;
+}
 /*# sourceMappingURL=info.css.map */

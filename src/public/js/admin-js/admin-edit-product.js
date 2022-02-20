@@ -47,6 +47,8 @@ $("#form").submit(async function (e) {
   const gender = $("#gender").val();
   const hot = $("#hot").val();
   const cost = $("#cost").val();
+  const oldcost = $("#oldcost").val();
+  const refundcost = cost * 0.03;
   const thuongHieu = $("#thuongHieu").val();
   const xuatXu = $("#xuatXu").val();
   const phatHanh = $("#phatHanh").val();
@@ -66,6 +68,8 @@ $("#form").submit(async function (e) {
   form.append("gender", gender);
   form.append("hot", hot);
   form.append("cost", cost);
+  form.append("oldcost", oldcost);
+  form.append("refundcost", refundcost);
   form.append("image", image);
   form.append("thuongHieu", thuongHieu);
   form.append("xuatXu", xuatXu);

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SONO perfume</title>
+    <!-- ionicon -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- slick slider css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+        integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+        integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- slick slider js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"
+        integrity="sha512-WNZwVebQjhSxEzwbettGuQgWxbpYdoLf7mH+25A7sfQbbxKeS5SQ9QBf97zOY4nOlwtksgDA/czSTmfj4DUEiQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="../../public/css/page-css/home.css">
+    <!-- alertify -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <%- include('supplement/header', {data: data.info}); -%>
+            <section class="slider">
+                <div class="container">
+                    <div class="slider__show">
+                        <div class="image"><img
+                                src="https://bizweb.dktcdn.net/100/343/050/themes/702697/assets/slider_1.jpg?1642737469257"
+                                alt=""></div>
+                        <div class="image"><img
+                                src="https://bizweb.dktcdn.net/100/343/050/themes/702697/assets/slider_2.jpg?1642737469257"
+                                alt=""></div>
+                        <div class="image"><img
+                                src="https://bizweb.dktcdn.net/100/343/050/themes/702697/assets/slider_3.jpg?1642737469257"
+                                alt=""></div>
+                        <div class="image"><img
+                                src="https://bizweb.dktcdn.net/100/343/050/themes/702697/assets/slider_4.jpg?1642737469257"
+                                alt=""></div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="nam">
+
+                <div class="container">
+                    <a href="#">
+                        <h1 class="nam__namelist">Top nước hoa nam</h1>
+                    </a>
+
+                    <div class="nam__list">
+                        <% for(let i=0; i< data.products_nu.length; i++){ %>
+                            <%- include("supplement/box-product", {data: data.products_nu[i]}) -%>
+                                <%}%>
+
+                    </div>
+                </div>
+            </section>
+            <section class="nam">
+
+                <div class="container">
+                    <a href="#">
+                        <h1 class="nam__namelist">Top nước hoa nữ </h1>
+                    </a>
+                    <div class="nam__list">
+                        <% for(let i=0; i< data.products_nu.length; i++){ %>
+                            <%- include("supplement/box-product", {data: data.products_nu[i]}) -%>
+                                <%}%>
+                    </div>
+                </div>
+            </section>
+            <section class="nam">
+
+                <div class="container">
+                    <a href="#">
+                        <h1 class="nam__namelist">Top nước hoa unisex</h1>
+                    </a>
+
+                    <div class="nam__list">
+                        <% for(let i=0; i< data.products_nu.length; i++){ %>
+                            <%- include("supplement/box-product", {data: data.products_nu[i]}) -%>
+                                <%}%>
+
+                    </div>
+                </div>
+            </section>
+            <section class="thongbao">
+                <div class="container">
+                    <img src="https://bizweb.dktcdn.net/100/343/050/themes/702697/assets/saying_3.jpg?1643088097528"
+                        alt="">
+                </div>
+            </section>
+            <%- include('supplement/blogs-1', {data: data}) -%>
+                <%- include('supplement/social', {data: data.info}) -%>
+                    <%- include('supplement/footer', {data: data.info}) -%>
+                        <a href="tel:0869800400" class="btn-call">
+                            <ion-icon name="call-outline"></ion-icon>
+                            <span>0869.800.400</span>
+                        </a>
+                        <a href="https://www.messenger.com/t/110666541431249" class="btn-mess">
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEyOCAxMjgiIGhlaWdodD0iMTI4cHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMjggMTI4IiB3aWR0aD0iMTI4cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxnPjxyZWN0IGZpbGw9IiMwMDg0RkYiIGhlaWdodD0iMTI4IiB3aWR0aD0iMTI4Ii8+PC9nPjxwYXRoIGQ9Ik02NCwxNy41MzFjLTI1LjQwNSwwLTQ2LDE5LjI1OS00Niw0My4wMTVjMCwxMy41MTUsNi42NjUsMjUuNTc0LDE3LjA4OSwzMy40NnYxNi40NjIgIGwxNS42OTgtOC43MDdjNC4xODYsMS4xNzEsOC42MjEsMS44LDEzLjIxMywxLjhjMjUuNDA1LDAsNDYtMTkuMjU4LDQ2LTQzLjAxNUMxMTAsMzYuNzksODkuNDA1LDE3LjUzMSw2NCwxNy41MzF6IE02OC44NDUsNzUuMjE0ICBMNTYuOTQ3LDYyLjg1NUwzNC4wMzUsNzUuNTI0bDI1LjEyLTI2LjY1N2wxMS44OTgsMTIuMzU5bDIyLjkxLTEyLjY3TDY4Ljg0NSw3NS4yMTR6IiBmaWxsPSIjRkZGRkZGIiBpZD0iQnViYmxlX1NoYXBlIi8+PC9zdmc+"
+                                alt="">
+                        </a>
+    </div>
+    <script src="../../public/js/page-js/home-slick.js"></script>
+    <script src="../../public/js/page-js/home.js"></script>
+</body>
+
+</html>

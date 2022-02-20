@@ -16,6 +16,12 @@ const ProductSchema = mongoose.Schema(
     cost: {
       type: Number,
     },
+    oldcost: {
+      type: Number,
+    },
+    refundcost: {
+      type: Number,
+    },
     image: {
       type: String,
     },

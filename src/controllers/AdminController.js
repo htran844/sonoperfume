@@ -1,5 +1,6 @@
 const { getAllProduct, getOneByID } = require("../services/_productService");
 const { getListAccount } = require("../services/_accountService");
+const { getInfo } = require("../services/_infoService");
 module.exports.getAdminDashboard = async (req, res) => {
   try {
     res.render("admin-views/admin-base", {
@@ -120,9 +121,10 @@ module.exports.getAdminAccounts = async (req, res) => {
 };
 module.exports.getAdminInfo = async (req, res) => {
   try {
+    const info = await getInfo();
     res.render("admin-views/info-base", {
       content: "info",
-      data: {},
+      data: info,
     });
   } catch (error) {
     throw error;

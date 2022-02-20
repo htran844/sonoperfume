@@ -9,22 +9,24 @@
             <div class="card-form">
                 <form class="form-add" id="form">
                     <div class="form-group">
-                        <label class="label-group">Tên web</label>
+                        <label class="label-group">
+                            Tên Web
+                        </label>
                         <div class="input-control">
-                            <input type="text" id="name">
+                            <input type="text" id="name" value="<%= data.webname %>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="label-group">Địa chỉ</label>
                         <div class="input-control">
-                            <input type="text" id="address">
+                            <input type="text" id="address" value="<%= data.address %>">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="label-group">Email</label>
                         <div class="input-control">
-                            <input type="text" id="email" required>
+                            <input type="text" id="email" required value="<%= data.email %>">
                         </div>
                     </div>
                     <div class="form-group">
@@ -32,8 +34,10 @@
                         <div class="input-control">
                             <input type="file" id="imageSlide" multiple="multiple">
                         </div>
-                        <div class="image-preview">
-
+                        <div class="slide-preview">
+                            <% for(let i=0; i< data.imageSlide.length; i++){ %>
+                                <img src="<%= data.imageSlide[i] %>" alt="">
+                                <% } %>
                         </div>
                     </div>
                     <div class="form-group">
@@ -41,38 +45,38 @@
                         <div class="input-control">
                             <input type="file" id="imagethongbao">
                         </div>
-                        <div class="image-preview">
-
+                        <div class="thongbao-preview">
+                            <img src="<%= data.thongbao %>" alt="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="label-group">Phone</label>
                         <div class="input-control">
-                            <input type="text" id="phone" required>
+                            <input type="text" id="phone" required value="<%= data.phone %>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="label-group">Facebook</label>
                         <div class="input-control">
-                            <input type="text" id="facebook" required>
+                            <input type="text" id="facebook" required value="<%= data.facebook %>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="label-group">Insta</label>
                         <div class="input-control">
-                            <input type="text" id="insta" required>
+                            <input type="text" id="insta" required value="<%= data.insta %>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="label-group">youtube</label>
                         <div class="input-control">
-                            <input type="text" id="youtube" required>
+                            <input type="text" id="youtube" required value="<%= data.youtube %>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="label-group">Messenger</label>
                         <div class="input-control">
-                            <input type="text" id="messenger" required>
+                            <input type="text" id="messenger" required value="<%= data.messenger %>">
                         </div>
                     </div>
 

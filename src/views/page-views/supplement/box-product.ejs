@@ -1,0 +1,27 @@
+<div class="nam__list__boxed">
+    <img src="<%= data.image %>" alt="">
+    <div class="boxed__box">
+        <h3 class="boxed__box__name">
+            <a href="#">
+                <%= data.name %>
+            </a>
+        </h3>
+        <div class="boxed__box__price">
+            <span class="boxed__box__price--new">
+                <%= data.cost %>
+            </span>
+            <span class="boxed__box__price--old">
+                <%= data.oldcost %>
+            </span>
+        </div>
+        <div class="boxed__box__refund">
+            <span>+ <%= data.refundcost %>đ vào ví SONO</span>
+            <a href="#">
+                <ion-icon name="help-circle-outline"></ion-icon>
+            </a>
+        </div>
+    </div>
+    <div class="boxed__add">
+        <button class="boxed__add--button">Mua hàng</button>
+    </div>
+</div>

@@ -20,9 +20,7 @@ app.set("views", "./src/views");
 app.use("/public", express.static(path.join(__dirname, "/src/public")));
 //conect db
 require("./src/configs/connectDB");
-app.get("/", (req, res) => {
-  res.json("hello word");
-});
+
 const router = require("./src/routes/indexRoute");
 app.use(router);
 //listen
