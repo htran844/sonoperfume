@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <link rel="stylesheet" href="../../public/css/admin-css/reset.css">
     <link rel="stylesheet" href="../../public/css/admin-css/admin.css">
-
+    <link rel="stylesheet" href="../../public/css/libary/loader.css">
     <% if (content=='dashboard' ) { %>
         <link rel="stylesheet" href="/public/css/admin-css/dashboard.css" />
         <% } %>
@@ -50,6 +50,7 @@
                                                                             <%- include ('accounts-view/admin-accounts',
                                                                                 {data: data}) -%>
                                                                                 <% } %>
+
                                                                                     <footer class="footer text-center">
                                                                                         2021 © Ample
                                                                                         Admin
@@ -60,10 +61,35 @@
                     </article>
             </section>
     </div>
+    <div class="loader loader--style6" title="5" id="loader">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;"
+            xml:space="preserve">
+            <rect x="0" y="13" width="4" height="5" fill="#333">
+                <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0s" dur="0.6s"
+                    repeatCount="indefinite" />
+                <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0s" dur="0.6s"
+                    repeatCount="indefinite" />
+            </rect>
+            <rect x="10" y="13" width="4" height="5" fill="#333">
+                <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.15s" dur="0.6s"
+                    repeatCount="indefinite" />
+                <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.15s" dur="0.6s"
+                    repeatCount="indefinite" />
+            </rect>
+            <rect x="20" y="13" width="4" height="5" fill="#333">
+                <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.3s" dur="0.6s"
+                    repeatCount="indefinite" />
+                <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.3s" dur="0.6s"
+                    repeatCount="indefinite" />
+            </rect>
+        </svg>
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="/public/js/admin-js/base.js"></script>
+    <script src="../../public/js/libary.js"></script>
     <% if (content=='products' || content=='add-product' ) { %>
         <script src="/public/js/admin-js/admin-product.js">
         </script>
@@ -76,6 +102,7 @@
                         <script src="/public/js/admin-js/accounts.js">
                         </script>
                         <% } %>
+
 
 </body>
 

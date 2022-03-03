@@ -1,14 +1,3 @@
-const hamburger = document.querySelector(".menu");
-const show_toggle = document.querySelector(".show--toggle");
-const hide_toggle = document.querySelector(".hide--toggle");
-const navLink = document.querySelector(".header__bottom");
-
-hamburger.addEventListener("click", (e) => {
-  e.preventDefault();
-  navLink.classList.toggle("trans");
-  show_toggle.classList.toggle("hide");
-  hide_toggle.classList.toggle("hide");
-});
 $(document).ready(function () {
   $(".list__blogs").slick({
     dots: true,
@@ -51,6 +40,7 @@ $(document).ready(function () {
     infinite: true,
     speed: 300,
     slidesToShow: 5,
+    slidesToScroll: 2,
     adaptiveHeight: true,
     arrows: true,
     prevArrow: `<ion-icon name="arrow-back-outline" class="arrow-back-outline"></ion-icon>`,
@@ -60,9 +50,24 @@ $(document).ready(function () {
         breakpoint: 1024,
         settings: {
           arrows: true,
-          centerMode: true,
+          // centerMode: true,
           centerPadding: "40px",
           slidesToShow: 4,
+          slidesToScroll: 2,
+          // swipeToSlide: true,
+          // rows: 1,
+        },
+      },
+      {
+        breakpoint: 830,
+        settings: {
+          arrows: false,
+          // centerMode: false,
+          centerPadding: "50px",
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          swipeToSlide: true,
+          // rows: 1,
         },
       },
       {
@@ -72,6 +77,7 @@ $(document).ready(function () {
           centerMode: true,
           centerPadding: "40px",
           slidesToShow: 3,
+          slidesToScroll: 3,
         },
       },
       {
@@ -81,6 +87,7 @@ $(document).ready(function () {
           centerMode: true,
           centerPadding: "40px",
           slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
       {
@@ -89,6 +96,16 @@ $(document).ready(function () {
           arrows: false,
           centerMode: true,
           centerPadding: "40px",
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 300,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: "20px",
           slidesToShow: 1,
         },
       },

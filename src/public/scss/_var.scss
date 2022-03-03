@@ -1,0 +1,29 @@
+$whiteColor: #fafafa;
+$mainColor: #dbdbdb;
+$grayColor: #a3a1a1;
+$secondColor: #fff;
+$blackColor: #231f20;
+$redColor: #e66d6d;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: $blackColor;
+}
+.wrapper {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 5px;
+  overflow: hidden;
+}

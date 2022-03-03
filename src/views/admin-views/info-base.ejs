@@ -39,12 +39,16 @@
                         <% if (content=='info' ) { %>
                             <%- include ('info-view/admin-info', {data: data}) -%>
                                 <% } %>
-                                    <footer class="footer text-center">
-                                        2021 © Ample
-                                        Admin
-                                        brought to you by
-                                        <a href="https://www.wrappixel.com/">hoangpro</a>
-                                    </footer>
+                                    <!-- trang brand -->
+                                    <% if (content=='brands' ) { %>
+                                        <%- include ('brand-view/admin-brands', {data: data}) -%>
+                                            <% } %>
+                                                <footer class="footer text-center">
+                                                    2021 © Ample
+                                                    Admin
+                                                    brought to you by
+                                                    <a href="https://www.wrappixel.com/">hoangpro</a>
+                                                </footer>
                     </article>
             </section>
     </div>
@@ -77,6 +81,9 @@
     <% if (content=='info' ) { %>
         <script src="../../public/js/admin-js/info.js"></script>
         <% } %>
+            <% if (content=='brands' ) { %>
+                <script src="../../public/js/admin-js/admin-brands.js"></script>
+                <% } %>
 </body>
 
 </html>

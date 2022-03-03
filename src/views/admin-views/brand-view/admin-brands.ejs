@@ -1,0 +1,47 @@
+<div class="container-content ">
+    <div class="name-page ">
+        <div class="container-2">
+            Thương hiệu
+        </div>
+    </div>
+    <div class="content ">
+        <div class="white-box">
+            <div class="header-table">
+                <div class="brand">
+                    <input type="text" id="brandname" placeholder="nhập tên thương hiệu..">
+                    <button class="add-brand">Thêm brand</button>
+                </div>
+
+            </div>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="border-top-0">#</th>
+                            <th class="border-top-0">Hãng</th>
+                            <th class="border-top-0">hành động</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data.forEach((brand, index)=>{ %>
+                            <tr>
+                                <td>
+                                    <%= index+1 %>
+                                </td>
+                                <td>
+                                    <%= brand.brand %>
+                                </td>
+                                <td>
+                                    <button onclick="deletebrand('<%= brand._id %>')">Xóa</button>
+                                </td>
+                            </tr>
+                            <% }) %>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

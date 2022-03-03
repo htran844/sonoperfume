@@ -1,6 +1,7 @@
 const { getAllProduct, getOneByID } = require("../services/_productService");
 const { getListAccount } = require("../services/_accountService");
 const { getInfo } = require("../services/_infoService");
+const { getAllBrand } = require("../services/_brandService");
 module.exports.getAdminDashboard = async (req, res) => {
   try {
     res.render("admin-views/admin-base", {
@@ -20,7 +21,7 @@ module.exports.getAdminProduct = async (req, res) => {
     delete req.query.page;
     let name = req.query.name;
     let gender = req.query.gender;
-    let result = await getAllProduct(req.query, page);
+    let result = await getAllProduct(req.query, page, 5);
 
     let nameShow = `&name=${name}`;
     if (typeof name === "undefined") {
@@ -125,6 +126,17 @@ module.exports.getAdminInfo = async (req, res) => {
     res.render("admin-views/info-base", {
       content: "info",
       data: info,
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getAdminBrand = async (req, res) => {
+  try {
+    const brands = await getAllBrand();
+    res.render("admin-views/info-base", {
+      content: "brands",
+      data: brands,
     });
   } catch (error) {
     throw error;

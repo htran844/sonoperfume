@@ -110,7 +110,7 @@ module.exports.getAllProductAdmin = async (req, res) => {
   try {
     let page = req.query.page;
     delete req.query.page;
-    let result = await getAllProduct(req.query, page);
+    let result = await getAllProduct(req.query, page, 4);
 
     if (!result) {
       return res.status(500).json({ status: "fail", data: "" });

@@ -1,0 +1,67 @@
+@import "_var";
+
+.nam__list__boxed {
+  width: 200px;
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 4px;
+  padding: 0 20px;
+  margin: 5px 10px;
+  transition: 0.5s ease;
+
+  &:hover {
+    transition: 0.5s ease;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  a {
+    color: $blackColor;
+  }
+  img {
+    height: 180px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .boxed__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+
+    .boxed__box__name {
+      text-align: center;
+      font-size: 14px;
+      flex-grow: 1;
+    }
+    .boxed__box__price {
+      font-size: 16px;
+      padding: 2px 0;
+      .boxed__box__price--new {
+        font-weight: 600;
+        color: $redColor;
+      }
+      .boxed__box__price--old {
+        font-size: 14px;
+        text-decoration: line-through;
+        color: $grayColor;
+      }
+    }
+    .boxed__box__refund span {
+      font-size: 12px;
+    }
+  }
+}
+.boxed__add {
+  margin: 10px 0;
+  flex-grow: 0;
+  .boxed__add--button {
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    background-color: $blackColor;
+    color: $whiteColor;
+    cursor: pointer;
+  }
+}

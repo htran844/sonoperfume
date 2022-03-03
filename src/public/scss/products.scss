@@ -1,0 +1,237 @@
+@import "header";
+@import "footer";
+@import "box-product";
+@import "_var";
+
+.opacity-20 {
+  opacity: 20%;
+}
+.cusors-default {
+  cursor: default !important;
+}
+.pointer-event-none {
+  pointer-events: none;
+}
+.breadcrumb {
+  ul {
+    list-style: none;
+    display: flex;
+    li {
+      margin-right: 10px;
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.content-below {
+  margin-top: 50px;
+}
+.products-main {
+  display: flex;
+  justify-content: space-between;
+}
+.filter-name {
+  border-bottom: 2px solid $blackColor;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 4px 0;
+  margin-bottom: 10px;
+}
+.filter {
+  a:hover {
+    text-decoration: underline;
+  }
+  .filter__ten {
+    margin: 20px 0;
+    input {
+      padding: 4px 2px;
+      margin: 4px 0;
+      outline: none;
+    }
+    button {
+      color: $whiteColor;
+      padding: 6px 4px;
+      background-color: $blackColor;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  .filter__hang {
+    margin: 30px 0;
+    margin-bottom: 8px;
+    ul {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    ul::-webkit-scrollbar {
+      width: 12px; /* width of the entire scrollbar */
+    }
+
+    ul::-webkit-scrollbar-track {
+      background: $mainColor; /* color of the tracking area */
+    }
+
+    ul::-webkit-scrollbar-thumb {
+      background-color: $blackColor; /* color of the scroll thumb */
+      // border-radius: 20px; /* roundness of the scroll thumb */
+      border: 1px solid $grayColor; /* creates padding around scroll thumb */
+    }
+    li {
+      margin: 4px 0;
+    }
+  }
+  .filter__gioitinh {
+    margin: 30px 0;
+    .list-gender {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .filter__gia {
+    margin: 30px 0;
+    .list-cost {
+      p {
+        margin: 4px 0;
+      }
+    }
+  }
+}
+.products {
+  width: 78%;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  // background-color: $whiteColor;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  .top-products {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 0 10px;
+    .thong-ke {
+      color: $grayColor;
+    }
+    .arange {
+      span {
+        font-weight: bold;
+      }
+      select {
+        padding: 6px 4px;
+        outline: none;
+      }
+    }
+  }
+  .list-product {
+    margin-top: 10px;
+    padding: 20px 0;
+    .wrap-product {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .nam__list__boxed {
+      width: 180px;
+      height: 320px;
+      .boxed__box__name {
+        font-size: 12px;
+      }
+      .boxed__box__price {
+        font-size: 14px;
+      }
+      .boxed__box__price--old {
+        font-size: 12px;
+      }
+      .boxed__box__refund span {
+        font-size: 10px;
+      }
+    }
+  }
+  .pagination-product {
+    text-align: center;
+    padding-bottom: 20px;
+    .pagi {
+      display: flex;
+      justify-content: center;
+      div {
+        cursor: pointer;
+      }
+      ion-icon {
+        font-size: 32px;
+      }
+      .pagi__box {
+        margin: 0 10px;
+      }
+      span {
+        line-height: 32px;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+/*Ipad ngang(1024 x 768)*/
+@media screen and (max-width: 1024px) {
+  .wrap-product {
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (max-width: 768px) {
+  .content-below {
+    margin-top: 10px;
+  }
+  .wrap-product {
+    justify-items: center;
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .breadcrumb {
+    margin-top: 120px;
+  }
+  .filter__ten {
+    input {
+      width: 80%;
+    }
+  }
+}
+/*Tablet nhỏ(540 x 640)*/
+@media screen and (max-width: 540px) {
+  .thong-ke {
+    width: 40%;
+  }
+  .arange {
+    width: 40%;
+  }
+  .wrap-product {
+    justify-items: center;
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .filter {
+    display: none;
+  }
+  .products {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (max-width: 410px) {
+  .nam__list__boxed {
+    width: 170px !important;
+    height: 320px;
+    padding: 0 10px;
+  }
+}
+/*Iphone(480 x 640)*/
+@media screen and (max-width: 380px) {
+  .nam__list__boxed {
+    width: 160px !important;
+    height: 320px;
+  }
+}
+/*Smart phone nhỏ*/
+@media screen and (max-width: 280px) {
+  .wrap-product {
+    grid-template-columns: 1fr !important;
+  }
+}

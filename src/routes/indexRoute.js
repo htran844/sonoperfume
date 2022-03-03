@@ -8,6 +8,8 @@ const accountRoute = require("./accountRoute");
 router.use("/account", accountRoute);
 const infoRoute = require("./infoRoute");
 router.use("/info", infoRoute);
+const brandRoute = require("./brandRoute");
+router.use("/brand", brandRoute);
 const pageRoute = require("./pageRoute");
 router.use("/", pageRoute);
 module.exports = router;

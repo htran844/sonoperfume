@@ -28,6 +28,7 @@ $("#form").submit(async function (e) {
   $("#fulltester").is(":checked") === true
     ? (statusTester = true)
     : (statusTester = false);
+  startload();
   // call ajax
   const resultProductFull = await $.ajax({
     url: "/product/api/update-productfull/" + idProductFull,
@@ -43,7 +44,7 @@ $("#form").submit(async function (e) {
   });
   // tao bang product
   const name = $("#name").val();
-  const slug = $("#slug").val();
+  const slug = $("#slug").val().replace(/\s+/g, "-").toLowerCase();
   const gender = $("#gender").val();
   const hot = $("#hot").val();
   const cost = $("#cost").val();
@@ -91,6 +92,7 @@ $("#form").submit(async function (e) {
     contentType: false,
     data: form,
   });
+  endload();
   if (resultProduct) {
     alertify.success("Cập nhật sản phẩm thành công");
   } else {

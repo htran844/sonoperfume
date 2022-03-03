@@ -48,6 +48,7 @@ $("#form").submit(async function (e) {
   $("#fulltester").is(":checked") === true
     ? (statusTester = true)
     : (statusTester = false);
+  startload();
   // call ajax
   const resultProductFull = await $.ajax({
     url: "/product/api/create-productfull",
@@ -116,6 +117,7 @@ $("#form").submit(async function (e) {
     contentType: false,
     data: form,
   });
+  endload();
   if (resultProduct) {
     alertify.success("Tạo sản phẩm thành công");
   } else {
@@ -128,7 +130,7 @@ async function deleteProduct(e) {
   const idProduct = tr
     .querySelector(".delete-product a")
     .getAttribute("idProduct");
-
+  startload();
   await alertify.confirm("Xác nhận muốn xóa sản phẩm?", async function (e) {
     if (e) {
       let delProduct = await $.ajax({
@@ -142,5 +144,6 @@ async function deleteProduct(e) {
     } else {
       return;
     }
+    endload();
   });
 }

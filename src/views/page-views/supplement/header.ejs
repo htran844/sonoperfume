@@ -45,14 +45,14 @@
                         </label>
                     </div>
                     <div class="header__mid__logo">
-                        <a href="/trang-chu"><img
-                                src="https://f6-zpcloud.zdn.vn/7284894303902853472/cd551ad83700fb5ea211.jpg" alt="">
+                        <a href="/"><img src="https://f6-zpcloud.zdn.vn/9021080566888684070/8c707aea4da082fedbb1.jpg"
+                                alt="">
                         </a>
 
                     </div>
                     <div class="header__mid__search">
-                        <input type="text" placeholder="Tìm sản phẩm...">
-                        <ion-icon name="search-outline"></ion-icon>
+                        <input type="text" id="input-search" placeholder="Tìm sản phẩm...">
+                        <ion-icon name="search-outline" class="header-search"></ion-icon>
                     </div>
                     <div class="header__mid__cart">
                         <a href="/gio-hang">
@@ -69,18 +69,39 @@
         <div class="container">
             <div class="header__bottom__row">
                 <ul class="nav__link">
-                    <li><a class="active" href="/trang-chu">Trang chủ</a></li>
-                    <li><a href="/nuoc-hoa-nam">Nước hoa Nam</a></li>
-                    <li><a href="/nuoc-hoa-nu">Nước hoa nữ</a></li>
-                    <li><a href="/blogs">Blog</a></li>
-                    <li><a href="/khuyen-mai">Khuyến mãi</a></li>
-                    <li><a href="/lien-he">Liên hệ</a></li>
-                    <li>
-                        <div class="header__mid__search2">
-                            <input type="text" placeholder="Tìm sản phẩm...">
-                            <ion-icon name="search-outline"></ion-icon>
-                        </div>
-                    </li>
+                    <% if(content==="home" ){ %>
+                        <li><a class="active" href="/">Trang chủ</a></li>
+                        <%} else{ %>
+                            <li><a href="/">Trang chủ</a></li>
+                            <% } %>
+
+                                <li><a href="/products?&gender=Nam">Nước hoa Nam</a></li>
+                                <li><a href="/products?&gender=Nữ">Nước hoa nữ</a></li>
+                                <% if(content==="blog" ){ %>
+                                    <li><a class="active" href="/blogs">Blog</a></li>
+                                    <%} else{ %>
+                                        <li><a href="/blogs">Blog</a></li>
+                                        <% } %>
+
+                                            <% if(content==="khuyen-mai" ){ %>
+                                                <li><a class="active" href="/khuyen-mai">Khuyến mãi</a></li>
+                                                <%} else{ %>
+                                                    <li><a href="/khuyen-mai">Khuyến mãi</a></li>
+                                                    <% } %>
+
+                                                        <% if(content==="lien-he" ){ %>
+                                                            <li><a class="active" href="/lien-he">Liên hệ</a></li>
+                                                            <%} else{ %>
+                                                                <li><a href="/lien-he">Liên hệ</a></li>
+                                                                <% } %>
+
+                                                                    <li>
+                                                                        <div class="header__mid__search2">
+                                                                            <input type="text"
+                                                                                placeholder="Tìm sản phẩm...">
+                                                                            <ion-icon name="search-outline"></ion-icon>
+                                                                        </div>
+                                                                    </li>
                 </ul>
             </div>
         </div>

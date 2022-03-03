@@ -1,0 +1,121 @@
+@import "header";
+@import "footer";
+
+@import "_var";
+
+.slick-dots li button:before {
+  font-size: 12px;
+}
+.slider {
+  z-index: 8;
+  .slider__show {
+    .image {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+.nam {
+  padding-top: 40px;
+  background-color: $secondColor;
+  .nam__namelist {
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+  }
+  .nam__list {
+    position: relative;
+    @import "box-product";
+    .slick-arrow {
+      position: absolute !important;
+      font-size: 46px;
+      cursor: pointer;
+      color: $grayColor;
+      z-index: 10;
+    }
+    .arrow-back-outline {
+      top: 50%;
+      left: 0;
+      // transform: translateX(50%);
+    }
+    .arrow-forward-outline {
+      top: 50%;
+      right: 0;
+    }
+  }
+}
+
+.thongbao {
+  padding: 50px 0;
+  img {
+    width: 100%;
+  }
+}
+.blogs {
+  padding: 20px 0;
+  h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 30px 0;
+  }
+  .list__blogs {
+    .list__blogs--blog {
+      margin-left: 30px;
+      padding: 20px;
+      background-color: $secondColor;
+      img {
+        width: 100%;
+      }
+      h4 {
+        padding: 20px 10px;
+        color: $blackColor;
+      }
+      :hover {
+        opacity: 80%;
+      }
+    }
+  }
+}
+.social {
+  .all-social {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0 80px 0;
+    div {
+      padding: 0 10px;
+      font-size: 36px;
+      a {
+        color: $blackColor;
+      }
+      :hover {
+        opacity: 80%;
+      }
+    }
+  }
+}
+
+.slider__show {
+  position: relative;
+  z-index: 8;
+}
+
+/*Ipad ngang(1024 x 768)*/
+@media screen and (max-width: 1024px) {
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (max-width: 768px) {
+  .slider {
+    margin-top: 114px;
+  }
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (max-width: 480px) {
+}
+/*Iphone(480 x 640)*/
+@media screen and (max-width: 320px) {
+}
+/*Smart phone nhỏ*/
+@media screen and (max-width: 240px) {
+}

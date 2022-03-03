@@ -1,0 +1,94 @@
+@import "_var";
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: $whiteColor;
+  color: $blackColor;
+  font-size: 14px;
+  .footer__bottom {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid $secondColor;
+  }
+  .footer__top {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+    gap: 40px;
+    a {
+      transition: 0.2s ease;
+    }
+    a:hover {
+      transition: 0.2s ease;
+      text-decoration: underline;
+    }
+    h3 {
+      padding: 20px 0;
+    }
+    .footer__top__info > div {
+      padding: 10px 0;
+    }
+    .footer__top__suport > div {
+      padding: 10px 0;
+    }
+    .footer__top__guide > div {
+      padding: 10px 0;
+    }
+    .footer__top__policy > div {
+      padding: 10px 0;
+    }
+  }
+}
+.btn-call {
+  color: $blackColor;
+  font-weight: 700;
+  background-color: $whiteColor;
+  border: 1px solid $secondColor;
+  border-radius: 12px;
+  padding: 2px 4px;
+  position: fixed;
+  bottom: 25px;
+  left: 0;
+  display: none;
+}
+.btn-mess {
+  color: $whiteColor;
+
+  position: fixed;
+  bottom: 25px;
+  right: 15px;
+  img {
+    width: 50px;
+    border: 1px solid $secondColor;
+    border-radius: 50%;
+  }
+}
+
+/*Ipad ngang(1024 x 768)*/
+@media screen and (max-width: 1024px) {
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (max-width: 768px) {
+  .footer__top {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer__bottom {
+    padding: 10px 0 10px 0;
+  }
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (max-width: 480px) {
+  .footer__top > div {
+    margin-left: 20px;
+  }
+  .btn-call {
+    display: block;
+  }
+}
+/*Iphone(480 x 640)*/
+@media screen and (max-width: 320px) {
+}
+/*Smart phone nhỏ*/
+@media screen and (max-width: 240px) {
+}

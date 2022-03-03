@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SONO perfume</title>
+    <%- include('supplement/ion-jquery'); -%>
+        <%- include('supplement/slick-slider'); -%>
+            <link rel="stylesheet" href="../../public/css/page-css/products.css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <%- include('supplement/header', {data: data.info}); -%>
+            <section class="breadcrumb">
+                <div class="container">
+                    <ul>
+                        <li><a href="/">Trang chủ</a></li>
+                        <li>> Danh sách sản phẩm</li>
+                    </ul>
+                </div>
+
+            </section>
+            <section class="content-below">
+                <div class="container products-main">
+                    <div class="filter">
+                        <div class="filter__ten">
+                            <h3 class="filter-name">Tìm theo tên</h3>
+                            <form action="/products">
+                                <input type="text" class="" name="name" id="">
+                                <button>Tìm</button>
+                            </form>
+
+                        </div>
+                        <div class="filter__hang">
+                            <h3 class="filter-name thuong-hieu">Thương hiệu</h3>
+                            <ul class="filter__hang__list">
+                                <% data.brands.forEach((brand)=>{ %>
+
+                                    <li class="each__brand">
+                                        <a href="/products?thuongHieu=<%= brand.brand %>">
+                                            <%= brand.brand %>
+                                        </a>
+
+                                    </li>
+                                    <% }) %>
+                            </ul>
+                        </div>
+                        <div class="filter__gioitinh">
+                            <h3 class="filter-name">Giới tính</h3>
+                            <% if(data.gender=="Nam" ){ %>
+                                <div class="list-gender">
+                                    <p>
+                                        <input type="checkbox" checked name="gender" value="Nam"
+                                            onchange="gender_handle(this)">
+                                        Nam
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="gender" value="Nữ" onchange="gender_handle(this)">
+                                        Nữ
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="gender" value="Unisex"
+                                            onchange="gender_handle(this)">
+                                        Unisex
+                                    </p>
+                                </div>
+                                <% } else if(data.gender=="Nữ" ){ %>
+                                    <div class="list-gender">
+                                        <p>
+                                            <input type="checkbox" name="gender" value="Nam"
+                                                onchange="gender_handle(this)">
+                                            Nam
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" checked name="gender" value="Nữ"
+                                                onchange="gender_handle(this)">
+                                            Nữ
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="gender" value="Unisex"
+                                                onchange="gender_handle(this)">
+                                            Unisex
+                                        </p>
+                                    </div>
+                                    <% }else if(data.gender=="Unisex" ){ %>
+                                        <div class="list-gender">
+                                            <p>
+                                                <input type="checkbox" name="gender" value="Nam"
+                                                    onchange="gender_handle(this)">
+                                                Nam
+                                            </p>
+                                            <p>
+                                                <input type="checkbox" name="gender" value="Nữ"
+                                                    onchange="gender_handle(this)">
+                                                Nữ
+                                            </p>
+                                            <p>
+                                                <input type="checkbox" checked name="gender" value="Unisex"
+                                                    onchange="gender_handle(this)">
+                                                Unisex
+                                            </p>
+                                        </div>
+                                        <% }else{ %>
+                                            <div class="list-gender">
+                                                <p>
+                                                    <input type="checkbox" name="gender" value="Nam"
+                                                        onchange="gender_handle(this)">
+                                                    Nam
+                                                </p>
+                                                <p>
+                                                    <input type="checkbox" name="gender" value="Nữ"
+                                                        onchange="gender_handle(this)">
+                                                    Nữ
+                                                </p>
+                                                <p>
+                                                    <input type="checkbox" name="gender" value="Unisex"
+                                                        onchange="gender_handle(this)">
+                                                    Unisex
+                                                </p>
+                                            </div>
+                                            <% } %>
+
+
+
+
+                        </div>
+                        <div class="filter__gia">
+                            <h3 class="filter-name">Mức giá</h3>
+                            <div class="list-cost">
+                                <% if(data.cost=="1" ){ %>
+                                    <p>
+                                        <input type="checkbox" id="cost1" checked name="cost" value="1"
+                                            onchange="cost_handle(this)">
+                                        <label for="cost1">dưới 200.000đ</label>
+                                    </p>
+                                    <% } else { %>
+                                        <p>
+                                            <input type="checkbox" id="cost1" name="cost" value="1"
+                                                onchange="cost_handle(this)">
+                                            <label for="cost1">dưới 200.000đ</label>
+                                        </p>
+                                        <% } %>
+                                            <% if(data.cost=="2" ){ %>
+                                                <p>
+                                                    <input type="checkbox" id="cost2" checked name="cost" value="2"
+                                                        onchange="cost_handle(this)">
+                                                    <label for="cost2">200.000đ - 350.000đ</label>
+                                                </p>
+                                                <% } else { %>
+                                                    <p>
+                                                        <input type="checkbox" id="cost2" name="cost" value="2"
+                                                            onchange="cost_handle(this)">
+                                                        <label for="cost2">200.000đ - 350.000đ</label>
+                                                    </p>
+                                                    <% } %>
+
+                                                        <% if(data.cost=="3" ){ %>
+                                                            <p>
+                                                                <input type="checkbox" id="cost3" checked name="cost"
+                                                                    value="3" onchange="cost_handle(this)">
+                                                                <label for="cost3">350.000đ - 500.000đ</label>
+                                                            </p>
+                                                            <% } else { %>
+                                                                <p>
+                                                                    <input type="checkbox" id="cost3" name="cost"
+                                                                        value="3" onchange="cost_handle(this)">
+                                                                    <label for="cost3">350.000đ - 500.000đ</label>
+                                                                </p>
+                                                                <% } %>
+
+                                                                    <% if(data.cost=="4" ){ %>
+                                                                        <p>
+                                                                            <input type="checkbox" id="cost4" checked
+                                                                                name="cost" value="4"
+                                                                                onchange="cost_handle(this)">
+                                                                            <label for="cost4">500.000đ - 700.000đ
+                                                                            </label>
+                                                                        </p>
+                                                                        <% } else { %>
+                                                                            <p>
+                                                                                <input type="checkbox" id="cost4"
+                                                                                    name="cost" value="4"
+                                                                                    onchange="cost_handle(this)">
+                                                                                <label for="cost4">500.000đ - 700.000đ
+                                                                                </label>
+                                                                            </p>
+                                                                            <% } %>
+
+                                                                                <% if(data.cost=="5" ){ %>
+                                                                                    <p>
+                                                                                        <input type="checkbox"
+                                                                                            id="cost5" checked
+                                                                                            name="cost" value="5"
+                                                                                            onchange="cost_handle(this)">
+                                                                                        <label for="cost5">trên
+                                                                                            700.000đ</label>
+                                                                                    </p>
+                                                                                    <% } else { %>
+                                                                                        <p>
+                                                                                            <input type="checkbox"
+                                                                                                id="cost5" name="cost"
+                                                                                                value="5"
+                                                                                                onchange="cost_handle(this)">
+                                                                                            <label for="cost5">trên
+                                                                                                700.000đ</label>
+                                                                                        </p>
+                                                                                        <% } %>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="products">
+                        <div class="top-products">
+                            <% if(data.brand !="none" ){ %>
+                                <div class="thong-ke">
+                                    Thương hiệu: <%= data.brand %>
+                                        <a href="/products">
+                                            <ion-icon name="close-circle-outline"></ion-icon>
+                                        </a>
+                                </div>
+                                <% } else if(data.name !="none" ){ %>
+                                    <div class="thong-ke">
+                                        Tên nước hoa: "<%= data.name %>"
+                                            <a href="/products">
+                                                <ion-icon name="close-circle-outline"></ion-icon>
+                                            </a>
+                                    </div>
+                                    <% } else { %>
+                                        <div class="thong-ke">Trang <%= data.page %> / <%= (data.lengthPage) %>
+                                        </div>
+                                        <% } %>
+                                            <% if(data.sort=="1" ){ %>
+                                                <div class="arange">
+                                                    <span>Sắp xếp: </span>
+                                                    <select name="sort" id="sort" onchange="sort_handle()">
+                                                        <option value="0">Mặc định</option>
+                                                        <option value="1" selected>Giá tăng dần</option>
+                                                        <option value="2">Giá giảm dần</option>
+                                                        <option value="3">Xếp theo đánh giá</option>
+                                                    </select>
+                                                </div>
+                                                <% } else if(data.sort=="2" ){ %>
+                                                    <div class="arange">
+                                                        <span>Sắp xếp: </span>
+                                                        <select name="sort" id="sort" onchange="sort_handle()">
+                                                            <option value="0">Mặc định</option>
+                                                            <option value="1">Giá tăng dần</option>
+                                                            <option value="2" selected>Giá giảm dần</option>
+                                                            <option value="3">Xếp theo đánh giá</option>
+                                                        </select>
+                                                    </div>
+                                                    <% } else if(data.sort=="3" ){ %>
+                                                        <div class="arange">
+                                                            <span>Sắp xếp: </span>
+                                                            <select name="sort" id="sort" onchange="sort_handle()">
+                                                                <option value="0">Mặc định</option>
+                                                                <option value="1">Giá tăng dần</option>
+                                                                <option value="2">Giá giảm dần</option>
+                                                                <option value="3" selected>Xếp theo đánh giá</option>
+                                                            </select>
+                                                        </div>
+                                                        <% } else{ %>
+                                                            <div class="arange">
+                                                                <span>Sắp xếp: </span>
+                                                                <select name="sort" id="sort" onchange="sort_handle()">
+                                                                    <option value="0" selected>Mặc định</option>
+                                                                    <option value="1">Giá tăng dần</option>
+                                                                    <option value="2">Giá giảm dần</option>
+                                                                    <option value="3">Xếp theo đánh giá</option>
+                                                                </select>
+                                                            </div>
+                                                            <% } %>
+
+                        </div>
+                        <div class="list-product">
+                            <div class="wrap-product">
+                                <% if(data.lengthPage==0){ %>
+                                    <h2>Không có sản phẩm nào</h2>
+                                    <% } else { %>
+                                        <% data.products.forEach((product)=>{ %>
+                                            <%- include('supplement/box-product', {data: product}); -%>
+                                                <% }) %>
+                                                    <% } %>
+                            </div>
+                        </div>
+                        <div class="pagination-product">
+                            <div class="pagi">
+                                <% if(data.page==1){ %>
+                                    <div id="prepage" class="opacity-20 cusors-default pointer-event-none">
+                                        <ion-icon name="arrow-back-outline"></ion-icon>
+                                    </div>
+                                    <% } else { %>
+                                        <div id="prepage" class="">
+                                            <ion-icon name="arrow-back-outline"></ion-icon>
+                                        </div>
+                                        <% } %>
+
+                                            <div class="pagi__box cusors-default">
+                                                <span id="nowpage" value="<%= data.page %>">
+                                                    <%= data.page %>
+                                                </span>
+                                                <span>/</span>
+                                                <span>
+                                                    <%= (data.lengthPage) %>
+                                                </span>
+                                            </div>
+                                            <% if(data.page>=(data.lengthPage)){ %>
+                                                <div id="nextpage" class="opacity-20 cusors-default pointer-event-none">
+                                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                                </div>
+                                                <% } else { %>
+                                                    <div id="nextpage" class="">
+                                                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                                                    </div>
+                                                    <% } %>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <%- include('supplement/footer', {data: data.info}) -%>
+                <%- include('supplement/call-mess', {data: data.info}) -%>
+
+    </div>
+    <script src="../../public/js/page-js/header-toggle.js"></script>
+    <script src="../../public/js/page-js/products.js"></script>
+</body>
+
+</html>
