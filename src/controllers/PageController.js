@@ -2,6 +2,7 @@ const { getInfo } = require("../services/_infoService");
 const {
   getProductHome,
   getAllProduct,
+  getOneBySlug,
 } = require("../services/_productService");
 const { getAllBrand } = require("../services/_brandService");
 module.exports.getHome = async (req, res) => {
@@ -9,6 +10,7 @@ module.exports.getHome = async (req, res) => {
     const info = await getInfo();
     const products_nam = await getProductHome("Nam");
     let products_nu = await getProductHome("Nữ");
+    // đổi tiền sang dạng có dấu chấm
     products_nu = products_nu.map((product) => {
       let newCost = product.cost.toLocaleString("en").replace(/\,/g, ".");
       let newOldCost = product.oldcost.toLocaleString("en").replace(/\,/g, ".");
@@ -104,8 +106,24 @@ module.exports.getProducts = async (req, res) => {
     delete req.query.sort;
     const info = await getInfo();
     const brands = await getAllBrand();
-    const products = await getAllProduct(req.query, page, 16, sort);
-
+    let products = await getAllProduct(req.query, page, 16, sort);
+    // đổi tiền sang dạng có dấu chấm
+    products.result = products.result.map((product) => {
+      let newCost = product.cost.toLocaleString("en").replace(/\,/g, ".");
+      let newOldCost = product.oldcost.toLocaleString("en").replace(/\,/g, ".");
+      let newRefundCost = product.refundcost
+        .toLocaleString("en")
+        .replace(/\,/g, ".");
+      product.cost = undefined;
+      product.oldcost = undefined;
+      product.refundcost = undefined;
+      // chỗ này nó phải lưu kiểu này chứ gán trực tiếp là nó lưu địa chỉ nhớ
+      let newProduct = { ...product }._doc;
+      newProduct.cost = newCost;
+      newProduct.oldcost = newOldCost;
+      newProduct.refundcost = newRefundCost;
+      return newProduct;
+    });
     res.render("page-views/products", {
       content: "products",
       data: {
@@ -120,6 +138,19 @@ module.exports.getProducts = async (req, res) => {
         lengthPage: products.lengthPage,
         page: page,
       },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getOneProductBySlug = async (req, res) => {
+  try {
+    const info = await getInfo();
+    const slug = req.params.slug;
+    let product = await getOneBySlug(slug);
+    res.render("page-views/product-detail", {
+      content: "product-detail",
+      data: { info: info },
     });
   } catch (error) {
     throw error;

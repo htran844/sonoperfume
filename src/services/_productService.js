@@ -33,13 +33,14 @@ exports.changeStatus = async (_id) => {
 };
 exports.getOneByID = async (_id) => {
   try {
-    return await ProductModel.findById(_id).populate("productFull");
+    return await ProductModel.findById(_id);
   } catch (error) {
     throw error;
   }
 };
 exports.getOneBySlug = async (slug) => {
   try {
+    return await ProductModel.findOne({ slug: slug });
   } catch (error) {
     throw error;
   }
@@ -72,7 +73,7 @@ exports.getAllProduct = async (data, page, PAGE_SIZE, sort_handle) => {
       let result = await ProductModel.find({
         ...data,
       })
-        .populate("productFull")
+
         .skip(PAGE_SIZE * (page - 1))
         .limit(PAGE_SIZE)
         .sort({ ...sort });
@@ -93,7 +94,7 @@ exports.getAllProduct = async (data, page, PAGE_SIZE, sort_handle) => {
         name: { $regex: namefind, $options: "i" },
         ...data,
       })
-        .populate("productFull")
+
         .skip(PAGE_SIZE * (page - 1))
         .limit(PAGE_SIZE)
         .sort({ ...sort });
@@ -113,7 +114,7 @@ exports.getAllProduct = async (data, page, PAGE_SIZE, sort_handle) => {
         let result = await ProductModel.find({
           $or: [{ gender: genderfind }, { gender: "Unisex" }],
         })
-          .populate("productFull")
+
           .skip(PAGE_SIZE * (page - 1))
           .limit(PAGE_SIZE)
           .sort({ ...sort });
@@ -128,7 +129,7 @@ exports.getAllProduct = async (data, page, PAGE_SIZE, sort_handle) => {
         let result = await ProductModel.find({
           ...data,
         })
-          .populate("productFull")
+
           .skip(PAGE_SIZE * (page - 1))
           .limit(PAGE_SIZE)
           .sort({ ...sort });
@@ -150,7 +151,7 @@ exports.getAllProduct = async (data, page, PAGE_SIZE, sort_handle) => {
       let result = await ProductModel.find({
         $and: [{ cost: { $gte: costmin } }, { cost: { $lte: costmax } }],
       })
-        .populate("productFull")
+
         .skip(PAGE_SIZE * (page - 1))
         .limit(PAGE_SIZE)
         .sort({ ...sort });
@@ -176,7 +177,7 @@ exports.getAllProduct = async (data, page, PAGE_SIZE, sort_handle) => {
           $or: [{ gender: genderfind }, { gender: "Unisex" }],
           $and: [{ cost: { $gte: costmin } }, { cost: { $lte: costmax } }],
         })
-          .populate("productFull")
+
           .skip(PAGE_SIZE * (page - 1))
           .limit(PAGE_SIZE)
           .sort({ ...sort });
@@ -193,7 +194,7 @@ exports.getAllProduct = async (data, page, PAGE_SIZE, sort_handle) => {
           ...data,
           $and: [{ cost: { $gte: costmin } }, { cost: { $lte: costmax } }],
         })
-          .populate("productFull")
+
           .skip(PAGE_SIZE * (page - 1))
           .limit(PAGE_SIZE)
           .sort({ ...sort });
@@ -206,7 +207,7 @@ exports.getAllProduct = async (data, page, PAGE_SIZE, sort_handle) => {
     lengthPage = Math.ceil(lengthPage);
 
     let result = await ProductModel.find()
-      .populate("productFull")
+
       .skip(PAGE_SIZE * (page - 1))
       .limit(PAGE_SIZE)
       .sort({ ...sort });

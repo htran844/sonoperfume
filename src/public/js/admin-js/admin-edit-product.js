@@ -1,8 +1,6 @@
 //lay id san pham
 const url = window.location.href.split("/");
 const idProduct = url[url.length - 1];
-// lay id sp full
-const idProductFull = $("#idProductFull").attr("idFull");
 
 $("#image").change(function () {
   let files = this.files;
@@ -12,36 +10,18 @@ $("#image").change(function () {
     src: URL.createObjectURL(files[0]),
   }).appendTo(previewImages);
 });
-async function addProduct(e) {}
+const list_full = ` <div class="product-full__list">
+<input type="text" name="chai-full">
+<button onclick="$(this).parent().remove()">[x]</button>
+</div>`;
+$("#add-full").click((e) => {
+  e.preventDefault();
+  $(".all-listfull").append(list_full);
+});
+
 $("#form").submit(async function (e) {
   e.preventDefault();
-  // tao bang product full
-  const capaFullseal = $("#capaFullseal").val();
-  const costFullseal = $("#costFullseal").val();
-  var statusFullseal = "";
-  $("#fullseal").is(":checked") === true
-    ? (statusFullseal = true)
-    : (statusFullseal = false);
-  const capaTester = $("#capaTester").val();
-  const costTester = $("#costTester").val();
-  var statusTester = "";
-  $("#fulltester").is(":checked") === true
-    ? (statusTester = true)
-    : (statusTester = false);
-  startload();
-  // call ajax
-  const resultProductFull = await $.ajax({
-    url: "/product/api/update-productfull/" + idProductFull,
-    method: "PUT",
-    data: {
-      capaFullseal,
-      costFullseal,
-      statusFullseal,
-      capaTester,
-      costTester,
-      statusTester,
-    },
-  });
+
   // tao bang product
   const name = $("#name").val();
   const slug = $("#slug").val().replace(/\s+/g, "-").toLowerCase();
@@ -61,7 +41,6 @@ $("#form").submit(async function (e) {
   const mota = $("#mota").val();
   const status = $("#status").val();
   const image = $("#image")[0].files[0];
-  const productFull = resultProductFull.data._id;
 
   var form = new FormData();
   form.append("name", name);
@@ -82,7 +61,11 @@ $("#form").submit(async function (e) {
   form.append("huongCuoi", huongCuoi);
   form.append("mota", mota);
   form.append("status", status);
-  form.append("productFull", productFull);
+  // lấy list full
+  let listfull = $("[name=chai-full]");
+  for (let i = 0; i < listfull.length; i++) {
+    form.append("productFull", listfull[i].value);
+  }
   const resultProduct = await $.ajax({
     url: "/product/api/update-product/" + idProduct,
     method: "PUT",

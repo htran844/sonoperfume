@@ -13,9 +13,19 @@ $(".header-search").click(() => {
   let name_search = $("#input-search").val();
   window.location.href = `/products?&name=${name_search}`;
 });
+$(".header-search-2").click(() => {
+  let name_search = $("#search-2").val();
+  window.location.href = `/products?&name=${name_search}`;
+});
 $("#input-search").on("keyup", function (e) {
   if (e.key === "Enter" || e.keyCode === 13) {
     let name_search = $("#input-search").val();
+    window.location.href = `/products?&name=${name_search}`;
+  }
+});
+$("#search-2").on("keyup", function (e) {
+  if (e.key === "Enter" || e.keyCode === 13) {
+    let name_search = $("#search-2").val();
     window.location.href = `/products?&name=${name_search}`;
   }
 });

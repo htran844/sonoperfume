@@ -123,18 +123,19 @@
                         </div>
                     </div>
                     <div class="product-full">
-                        <div class="fullseal">
-                            <label class="label-group">Fullseal</label>
-                            <input type="number" placeholder="dung tích" id="capaFullseal">
-                            <input type="number" placeholder="giá" id="costFullseal">
-                            <input type="checkbox" checked id="fullseal"> <label for="fullseal">Có hàng</label>
+                        <label class="label-group">Thông tin về chai full</label>
+                        <button id="add-full">[+]</button>
+                        <div class="all-listfull">
+                            <div class="product-full__list">
+                                <input type="text" name="chai-full">
+                                <button onclick="$(this).parent().remove()">[x]</button>
+                            </div>
+                            <div class="product-full__list">
+                                <input type="text" name="chai-full">
+                                <button onclick="$(this).parent().remove()">[x]</button>
+                            </div>
                         </div>
-                        <div class="fulltester">
-                            <label class="label-group">Tester</label>
-                            <input type="number" placeholder="dung tích" id="capaTester">
-                            <input type="number" placeholder="giá" id="costTester">
-                            <input type="checkbox" checked id="fulltester"> <label for="fulltester">Có hàng</label>
-                        </div>
+
                     </div>
                     <div class="button-submit">
                         <button type="submit">Thêm</button>

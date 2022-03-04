@@ -1,8 +1,11 @@
 <div class="nam__list__boxed">
-    <img src="<%= data.image %>" alt="">
+    <a href="/products/<%= data.slug %>">
+        <img src="<%= data.image %>" alt="">
+    </a>
+
     <div class="boxed__box">
         <h3 class="boxed__box__name">
-            <a href="#">
+            <a href="/products/<%= data.slug %>">
                 <%= data.name %>
             </a>
         </h3>

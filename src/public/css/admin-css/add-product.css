@@ -53,6 +53,7 @@
 }
 .product-full div input {
   height: 35px;
+  width: 350px;
   outline: none;
   padding: 0 10px;
   border: none;
@@ -61,10 +62,9 @@
 .product-full input:focus {
   border-bottom: 2px solid #313131;
 }
-#fullseal,
-#fulltester {
-  width: 20px;
-  padding-top: 10px;
+.product-full__list button {
+  cursor: pointer;
+  line-height: 35px;
 }
 .image-preview img {
   width: 250px;

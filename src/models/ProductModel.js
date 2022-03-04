@@ -56,9 +56,7 @@ const ProductSchema = mongoose.Schema(
       type: Boolean,
     },
     productFull: {
-      type: String,
-      required: true,
-      ref: "ProductFull",
+      type: Array,
     },
   },
   {

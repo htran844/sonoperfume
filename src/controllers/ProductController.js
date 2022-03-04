@@ -1,6 +1,5 @@
 const cloudi = require("../configs/cloudinaryCF");
 const delFile = require("../middlewares/deleteFile");
-const { deleteProductFullByID } = require("../services/_productFullService");
 const {
   createProduct,
   updateProductByID,
@@ -73,7 +72,6 @@ module.exports.deleteProduct = async (req, res) => {
     if (!result) {
       return res.status(500).json({ status: "fail", data: "" });
     } else {
-      let result2 = await deleteProductFullByID(result.productFull);
       return res.status(200).json({ status: "success", data: result });
     }
   } catch (error) {

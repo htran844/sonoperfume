@@ -12,18 +12,7 @@
 .pointer-event-none {
   pointer-events: none;
 }
-.breadcrumb {
-  ul {
-    list-style: none;
-    display: flex;
-    li {
-      margin-right: 10px;
-      a:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-}
+
 .content-below {
   margin-top: 50px;
 }
@@ -186,7 +175,7 @@
     grid-template-columns: 1fr 1fr !important;
   }
   .breadcrumb {
-    margin-top: 120px;
+    margin-top: 150px;
   }
   .filter__ten {
     input {

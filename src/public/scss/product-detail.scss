@@ -1,0 +1,218 @@
+@import "header";
+@import "footer";
+@import "box-product";
+@import "_var";
+
+.product-wrap {
+  display: flex;
+  justify-content: space-between;
+  .product__image {
+    width: 46%;
+    padding: 80px;
+    img {
+      width: 100%;
+    }
+  }
+  .product__buy {
+    width: 54%;
+    padding: 80px 40px 80px 20px;
+    h1 {
+      font-size: 24px;
+    }
+    .buy__brand {
+      font-size: 18px;
+      color: $grayColor;
+      padding-top: 20px;
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+    .buy__cost {
+      display: flex;
+      font-size: 24px;
+      padding-top: 10px;
+      .now__cost {
+        font-weight: 600;
+        color: $redColor;
+        padding-right: 10px;
+      }
+      .old__cost {
+        font-size: 18px;
+        text-decoration: line-through;
+        color: $grayColor;
+      }
+    }
+    .buy__refund {
+      font-size: 16px;
+      color: $grayColor;
+      padding-top: 10px;
+    }
+    .buy__status {
+      margin-top: 10px;
+      padding: 5px 10px;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+    .status-con {
+      border: 1px solid #00c897;
+      color: #00c897;
+    }
+    .status-het {
+      border: 1px solid #ef6d6d;
+      color: #ef6d6d;
+    }
+    .buy__gender {
+      padding-top: 10px;
+    }
+    .buy__opacity {
+      padding-top: 10px;
+    }
+    .buy__soluong {
+      padding-top: 10px;
+      span {
+        font-weight: bold;
+      }
+      .inp-sl {
+        width: 60px;
+        padding: 5px 10px;
+      }
+    }
+    .buy_btnmua {
+      width: 134px;
+      margin-top: 10px;
+      button {
+        width: 100%;
+        padding: 10px 18px;
+        border: none;
+        outline: none;
+        background-color: $blackColor;
+        color: $whiteColor;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      :hover {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+    }
+    .buy__full {
+      margin-top: 10px;
+      padding: 10px;
+      display: inline-block;
+      border: 1px solid $grayColor;
+      font-size: 14px;
+      .lienhe {
+        color: #ef6d6d;
+      }
+      a {
+        text-decoration: underline;
+      }
+      .list__full {
+        ion-icon {
+          color: #00c897;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+}
+.more-info {
+  height: 300px;
+}
+.tabs {
+  // width: 800px;
+  margin: auto;
+  input {
+    display: none;
+  }
+  input:checked + label {
+    background-color: $blackColor;
+    color: $whiteColor;
+  }
+  .tab-click {
+    display: flex;
+  }
+  .tab-item {
+    padding: 12px 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .tab-item:hover {
+    background-color: $blackColor;
+    color: $whiteColor;
+  }
+  .tab {
+    perspective: 600px;
+    font-size: 14px;
+  }
+  .tab-pane {
+    border: 1px solid $grayColor;
+    background-color: white;
+    color: black;
+    padding: 15px;
+    // transform: rotate(-20deg);
+    transform-origin: top center;
+    transition: opacity 0.3s, transform 1s;
+    display: none;
+    z-index: 0;
+  }
+}
+.active {
+  display: block !important;
+  background-color: $blackColor;
+  color: $whiteColor;
+}
+
+/*Ipad ngang(1024 x 768)*/
+@media screen and (max-width: 1024px) {
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (max-width: 768px) {
+  .breadcrumb {
+    margin-top: 150px;
+  }
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (max-width: 540px) {
+  .product__image {
+    padding: 80px 0px !important;
+  }
+  .more-info {
+    height: 350px !important;
+  }
+}
+@media screen and (max-width: 480px) {
+  .more-info {
+    height: 400px !important;
+  }
+  .product-wrap {
+    // justify-content: center !important;
+    flex-direction: column !important;
+  }
+  .product__image {
+    width: 100% !important;
+    padding: 0px !important;
+  }
+  .product__buy {
+    width: 100% !important;
+    padding: 5px !important;
+  }
+}
+@media screen and (max-width: 420px) {
+  .more-info {
+    height: 480px !important;
+  }
+}
+/*Iphone(480 x 640)*/
+@media screen and (max-width: 320px) {
+  .more-info {
+    height: 530px !important;
+  }
+}
+/*Smart phone nhỏ*/
+@media screen and (max-width: 280px) {
+  .more-info {
+    height: 550px !important;
+  }
+}

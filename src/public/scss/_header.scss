@@ -1,4 +1,17 @@
 @import "_var";
+.breadcrumb {
+  z-index: 100;
+  ul {
+    list-style: none;
+    display: flex;
+    li {
+      margin-right: 10px;
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
 .header {
   color: $blackColor;
   position: relative;

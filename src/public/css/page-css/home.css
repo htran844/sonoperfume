@@ -20,6 +20,16 @@ a {
   padding: 0 5px;
   overflow: hidden; }
 
+.breadcrumb {
+  z-index: 100; }
+  .breadcrumb ul {
+    list-style: none;
+    display: flex; }
+    .breadcrumb ul li {
+      margin-right: 10px; }
+      .breadcrumb ul li a:hover {
+        text-decoration: underline; }
+
 .header {
   color: #231f20;
   position: relative; }
