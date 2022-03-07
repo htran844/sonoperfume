@@ -19,12 +19,12 @@
         </div>
         <div class="boxed__box__refund">
             <span>+ <%= data.refundcost %>đ vào ví SONO</span>
-            <a href="#">
+            <a href="/hoidap/vi-sono-la-gi">
                 <ion-icon name="help-circle-outline"></ion-icon>
             </a>
         </div>
     </div>
     <div class="boxed__add">
-        <button class="boxed__add--button">Mua hàng</button>
+        <button class="boxed__add--button" onclick="handle_mua('<%= data.slug %>')">Mua hàng</button>
     </div>
 </div>

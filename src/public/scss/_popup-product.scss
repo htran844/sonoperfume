@@ -1,0 +1,96 @@
+.popup-product {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(10px);
+  border: 5px solid $blackColor;
+  padding: 40px 40px 0 40px;
+  background: rgba($color: #fff, $alpha: 0.5);
+  .popup-header {
+    text-align: center;
+    margin-bottom: 20px;
+    ion-icon {
+      font-size: 42px;
+      color: rgb(4, 194, 4);
+    }
+    .popup-message {
+      font-size: 24px;
+      font-weight: 700;
+    }
+  }
+  .popup-bottom {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 0 0 40px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    a {
+      color: white;
+    }
+    .popup-to-cart {
+      width: 50%;
+      margin: 5px;
+      height: 40px;
+      line-height: 40px;
+      background-color: $blackColor;
+      cursor: pointer;
+      &:hover {
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+      }
+    }
+    .popup-buying {
+      width: 50%;
+      margin: 5px;
+      height: 40px;
+      line-height: 40px;
+      background-color: $blackColor;
+      cursor: pointer;
+      &:hover {
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+      }
+    }
+  }
+}
+/*Ipad ngang(1024 x 768)*/
+@media screen and (max-width: 1024px) {
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (max-width: 540px) {
+  .popup-product {
+    padding: 2px;
+    width: 80%;
+  }
+  .popup-bottom {
+    padding: 2px !important;
+    font-size: 12px !important;
+  }
+  .popup-message {
+    font-size: 18px !important;
+  }
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (max-width: 480px) {
+  .popup-bottom {
+    flex-direction: column !important;
+  }
+  .popup-to-cart {
+    width: 100% !important;
+    margin: 2px !important;
+  }
+  .popup-buying {
+    width: 100% !important;
+    margin: 2px !important;
+  }
+}
+/*Iphone(480 x 640)*/
+@media screen and (max-width: 320px) {
+}
+/*Smart phone nhỏ*/
+@media screen and (max-width: 240px) {
+}

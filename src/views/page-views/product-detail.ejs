@@ -27,55 +27,108 @@
                     <div class="container">
                         <div class="product-wrap">
                             <div class="product__image">
-                                <img src="http://res.cloudinary.com/sono/image/upload/v1642505328/chanel-allure-homme-sport-eau-de-toilette_3f6f93f61a194d2eb02404ba529abd94_master.jpg"
-                                    alt="">
+                                <img src="<%= data.product.image %>" alt="">
                             </div>
                             <div class="product__buy">
-                                <h1>Nước hoa Allure Homme Sport chiết 10ml</h1>
-                                <div class="buy__star">
-                                    <ion-icon name="star-sharp" style="color: red;"></ion-icon>
-                                    <ion-icon name="star-sharp" style="color: red;"></ion-icon>
-                                    <ion-icon name="star-sharp" style="color: red;"></ion-icon>
-                                    <ion-icon name="star-sharp" style="color: red;"></ion-icon>
-                                    <ion-icon name="star-half-sharp" style="color: red;"></ion-icon>
-                                </div>
-                                <div class="buy__brand">
-                                    <span>Thương hiệu: <a href="/products?">Dior</a></span>
-                                </div>
-                                <div class="buy__cost">
-                                    <div class="now__cost">233.444</div>
-                                    <div class="old__cost">222.222</div>
-                                </div>
-                                <div class="buy__refund">+ 9.000đ vào ví SONO <a href="#">
-                                        <ion-icon name="help-circle-outline"></ion-icon>
-                                    </a></div>
-                                <div class="buy__status status-con">Còn hàng</div>
-                                <div class="buy__gender">Giới tính: Nam</div>
-                                <div class="buy__frag">Hương chính: rong biển, tảo biển, mạch nha</div>
-                                <div class="buy__opacity"><span>Dung tích chiết:</span> 10ml</div>
-                                <div class="buy__soluong">
-                                    <span>Số lượng: </span>
-                                    <input type="number" value="1" class="inp-sl">
-                                </div>
-                                <div class="buy_btnmua">
-                                    <button>Mua hàng</button>
-                                </div>
-                                <div class="buy__full">
-                                    <div class="full__lienhe">
-                                        <div class="lienhe">Mua chai full liên hệ:</div>
-                                        <span>Zalo: <a href="#">0869.800.400</a></span> ||
-                                        <span>Facebook: <a href="#">Sono perfume</a></span>
+                                <h1>
+                                    <%= data.product.name %>
+                                </h1>
+                                <% if(data.product.hot<=10){%>
+                                    <div class="buy__star">
+                                        <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+                                        <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+                                        <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+                                        <ion-icon name="star-half-sharp" style="color: red;"></ion-icon>
+                                        <ion-icon name="star-outline" style="color: red;"></ion-icon>
                                     </div>
-                                    <div class="list__full">
-                                        <ion-icon name="checkbox-sharp"></ion-icon>fullseal 100ml giá 2.900.000
-                                    </div>
-                                    <div class="list__full">
-                                        <ion-icon name="checkbox-sharp"></ion-icon>fullseal 50ml giá 2.200.000
-                                    </div>
-                                    <div class="list__full">
-                                        <ion-icon name="checkbox-sharp"></ion-icon>tester 100ml giá 2.600.000
-                                    </div>
-                                </div>
+                                    <%} else if(data.product.hot<=14){%>
+                                        <div class="buy__star">
+                                            <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+                                            <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+                                            <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+                                            <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+
+                                            <ion-icon name="star-outline" style="color: red;"></ion-icon>
+                                        </div>
+                                        <%} else if(data.product.hot<=17){%>
+                                            <div class="buy__star">
+                                                <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+                                                <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+                                                <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+                                                <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+                                                <ion-icon name="star-half-sharp" style="color: red;"></ion-icon>
+
+                                            </div>
+                                            <%} else{ %>
+                                                <div class="buy__star">
+                                                    <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+                                                    <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+                                                    <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+                                                    <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+                                                    <ion-icon name="star-sharp" style="color: red;"></ion-icon>
+
+                                                </div>
+                                                <% }%>
+                                                    <div class="buy__brand">
+                                                        <span>Thương hiệu: <a href="/products?">
+                                                                <%= data.product.thuongHieu %>
+                                                            </a></span>
+                                                    </div>
+                                                    <div class="buy__cost">
+                                                        <div class="now__cost">
+                                                            <%= data.product.cost %>
+                                                        </div>
+                                                        <div class="old__cost">
+                                                            <%= data.product.oldcost %>
+                                                        </div>
+                                                    </div>
+                                                    <div class="buy__refund">+ <%= data.product.refundcost %>đ vào ví
+                                                            SONO <a href="/hoidap/vi-sono-la-gi">
+                                                                <ion-icon name="help-circle-outline"></ion-icon>
+                                                            </a></div>
+                                                    <% if(data.product.status==true){ %>
+                                                        <div class="buy__status status-con">Còn
+                                                            hàng
+                                                        </div>
+                                                        <% } else {%>
+                                                            <div class="buy__status status-het">Tạm hết chiết
+                                                            </div>
+                                                            <% } %>
+
+                                                                <div class="buy__gender">Giới tính: <%=
+                                                                        data.product.gender %>
+                                                                </div>
+                                                                <div class="buy__frag">Hương chính: <%=
+                                                                        data.product.nhomHuong %>
+                                                                </div>
+                                                                <div class="buy__opacity"><span>Dung tích chiết:</span>
+                                                                    10ml</div>
+                                                                <div class="buy__soluong">
+                                                                    <span>Số lượng: </span>
+                                                                    <input type="number" value="1" class="inp-sl">
+                                                                </div>
+                                                                <div class="buy_btnmua">
+                                                                    <button
+                                                                        onclick="handle_mua('<%= data.product.slug %>')">Mua
+                                                                        hàng</button>
+                                                                </div>
+                                                                <div class="buy__full">
+                                                                    <div class="full__lienhe">
+                                                                        <div class="lienhe">Mua chai full liên hệ:</div>
+                                                                        <span>Zalo: <a href="#">0869.800.400</a></span>
+                                                                        ||
+                                                                        <span>Facebook: <a href="#">Sono
+                                                                                perfume</a></span>
+                                                                    </div>
+                                                                    <% data.product.productFull.forEach((ele)=>{ %>
+                                                                        <div class="list__full">
+                                                                            <ion-icon name="checkbox-sharp"></ion-icon>
+                                                                            <%= ele %>
+                                                                        </div>
+                                                                        <% }) %>
+
+
+                                                                </div>
                             </div>
                         </div>
                     </div>
@@ -96,17 +149,21 @@
 
                             <div class="tab">
                                 <div class="tab-pane active">
-                                    <div>Xuất xứ: </div>
-                                    <div>Năm phát hành: </div>
-                                    <div>Phong cách: </div>
-                                    <div>Hương đầu: </div>
-                                    <div>Hương giữa: </div>
-                                    <div>Hương cuối: </div> <br>
-                                    <div>Gần gũi và nam tính. Dolce and Gabbanna The One EDP khác hẳn người anh em The
-                                        One EDT của mình, đậm đà mang theo một chút trầm lắng. Làm thức tỉnh khứu giác
-                                        với mùi Bưởi tươi và Húng Quế, cảm giác như được tận hưởng một ly cocktail mát
-                                        lạnh, mang hương vị của những buổi hẹn hò dấu mặt, hồi hộp dự đoán xem chàng
-                                        trai tối nay nàng gặp là ai.</div>
+                                    <div>Xuất xứ: <%= data.product.xuatXu %>
+                                    </div>
+                                    <div>Năm phát hành: <%= data.product.phatHanh %>
+                                    </div>
+                                    <div>Phong cách:<%= data.product.phongCach %>
+                                    </div>
+                                    <div>Hương đầu: <%= data.product.huongDau %>
+                                    </div>
+                                    <div>Hương giữa: <%= data.product.huongGiua %>
+                                    </div>
+                                    <div>Hương cuối: <%= data.product.huongCuoi %>
+                                    </div> <br>
+                                    <div>
+                                        <%= data.product.mota %>
+                                    </div>
                                 </div>
                                 <div class="tab-pane ">
                                     <div>Các bộ phận như cổ tay, khuỷu tay, sau tai, gáy, cổ trước là những vị trí xịt
@@ -143,9 +200,9 @@
                     <%- include('supplement/call-mess', {data: data.info}) -%>
 
     </div>
-
-    <script src="../../public/js/page-js/header-toggle.js"></script>
-    <script src="../../public/js/page-js/product-detail.js"></script>
+    <%- include('supplement/popup-product', {data: data.info}) -%>
+        <script src="../../public/js/page-js/header-toggle.js"></script>
+        <script src="../../public/js/page-js/product-detail.js"></script>
 </body>
 
 </html>

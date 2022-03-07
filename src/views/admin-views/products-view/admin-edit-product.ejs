@@ -151,14 +151,13 @@
                         <label class="label-group">Thông tin về chai full</label>
                         <button id="add-full">[+]</button>
                         <div class="all-listfull">
-                            <div class="product-full__list">
-                                <input type="text" name="chai-full">
-                                <button onclick="$(this).parent().remove()">[x]</button>
-                            </div>
-                            <div class="product-full__list">
-                                <input type="text" name="chai-full">
-                                <button onclick="$(this).parent().remove()">[x]</button>
-                            </div>
+                            <% data.productFull.forEach((ele)=>{ %>
+                                <div class="product-full__list">
+                                    <input type="text" name="chai-full" value="<%= ele %>">
+                                    <button onclick="$(this).parent().remove()">[x]</button>
+                                </div>
+                                <%})%>
+
                         </div>
                     </div>
                     <div class="button-submit">

@@ -148,9 +148,22 @@ module.exports.getOneProductBySlug = async (req, res) => {
     const info = await getInfo();
     const slug = req.params.slug;
     let product = await getOneBySlug(slug);
+    let newCost = product.cost.toLocaleString("en").replace(/\,/g, ".");
+    let newOldCost = product.oldcost.toLocaleString("en").replace(/\,/g, ".");
+    let newRefundCost = product.refundcost
+      .toLocaleString("en")
+      .replace(/\,/g, ".");
+    product.cost = undefined;
+    product.oldcost = undefined;
+    product.refundcost = undefined;
+    let newProduct = { ...product }._doc;
+
+    newProduct.cost = newCost;
+    newProduct.oldcost = newOldCost;
+    newProduct.refundcost = newRefundCost;
     res.render("page-views/product-detail", {
       content: "product-detail",
-      data: { info: info },
+      data: { info, product: newProduct },
     });
   } catch (error) {
     throw error;

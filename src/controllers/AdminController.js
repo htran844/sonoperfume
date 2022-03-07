@@ -1,5 +1,8 @@
 const { getAllProduct, getOneByID } = require("../services/_productService");
-const { getListAccount } = require("../services/_accountService");
+const {
+  getListAccount,
+  getOneAccountByID,
+} = require("../services/_accountService");
 const { getInfo } = require("../services/_infoService");
 const { getAllBrand } = require("../services/_brandService");
 module.exports.getAdminDashboard = async (req, res) => {
@@ -116,6 +119,17 @@ module.exports.getAdminAccounts = async (req, res) => {
         },
       });
     }
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getAdminOneAccount = async (req, res) => {
+  try {
+    const id = req.params._id;
+    res.render("admin-views/admin-base", {
+      content: "accounts",
+      data: {},
+    });
   } catch (error) {
     throw error;
   }

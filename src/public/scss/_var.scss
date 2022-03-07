@@ -27,3 +27,12 @@ a {
   padding: 0 5px;
   overflow: hidden;
 }
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.blur {
+  pointer-events: none;
+}
