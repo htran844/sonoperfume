@@ -1,0 +1,142 @@
+@import "header";
+@import "footer";
+@import "_var";
+
+.active {
+  background-color: $blackColor;
+  a {
+    color: #fff;
+  }
+}
+
+.account-wrap {
+  margin: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  .left-account {
+    width: 30%;
+    padding: 30px;
+    ul {
+      list-style: none;
+      li {
+        border: 1px solid $grayColor;
+        padding: 5px;
+        text-align: center;
+        margin-top: 10px;
+        a {
+          display: block;
+        }
+        &:hover {
+          background-color: $blackColor;
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  .right-account {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    label {
+      display: block;
+    }
+    input {
+      width: 100%;
+      height: 30px;
+      outline: none;
+      border: 1px solid $grayColor;
+      padding: 0 4px;
+    }
+    textarea {
+      width: 100%;
+      height: 60px;
+      outline: none;
+      border: 1px solid $grayColor;
+      padding: 0 4px;
+      resize: none;
+    }
+    button {
+      width: 100%;
+      height: 30px;
+      background-color: $blackColor;
+      color: #fff;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      &:hover {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .account-info {
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+      width: 50%;
+      padding: 40px 40px;
+      div {
+        margin: 5px 0;
+      }
+      .sodu-sono {
+        display: inline-block;
+        color: rgb(218, 45, 45);
+      }
+      .right__visono {
+        label {
+          display: inline;
+        }
+      }
+    }
+    .account-changepass {
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+      width: 50%;
+      padding: 40px 40px;
+      div {
+        margin: 5px 0;
+      }
+    }
+  }
+}
+/*Ipad ngang(1024 x 768)*/
+@media screen and (max-width: 1024px) {
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (max-width: 768px) {
+  .account-wrap {
+    margin-top: 120px;
+    flex-direction: column;
+  }
+  .left-account {
+    width: 40% !important;
+  }
+  .right-account {
+    width: 100% !important;
+  }
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (max-width: 480px) {
+  .left-account {
+    width: 80% !important;
+  }
+  .right-account {
+    flex-direction: column;
+  }
+  .account-info {
+    width: 100% !important;
+  }
+  .account-changepass {
+    width: 100% !important;
+  }
+}
+/*Iphone(480 x 640)*/
+@media screen and (max-width: 320px) {
+  .left-account {
+    width: 100% !important;
+  }
+}
+/*Smart phone nhỏ*/
+@media screen and (max-width: 240px) {
+}

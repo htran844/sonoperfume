@@ -29,6 +29,11 @@ a {
 .blur {
   pointer-events: none; }
 
+.btn-loading-on {
+  background-color: #a3a1a1 !important;
+  cursor: default !important;
+  box-shadow: none !important; }
+
 .breadcrumb {
   z-index: 100; }
   .breadcrumb ul {
@@ -216,6 +221,11 @@ a {
     height: 74px !important; } }
 
 /*Iphone(480 x 640)*/
+@media screen and (max-width: 280px) {
+  .header__mid__logo {
+    margin-left: 30px !important;
+    margin-right: 30px !important; } }
+
 /*Smart phone nhỏ*/
 * {
   margin: 0;
@@ -246,6 +256,11 @@ a {
 
 .blur {
   pointer-events: none; }
+
+.btn-loading-on {
+  background-color: #a3a1a1 !important;
+  cursor: default !important;
+  box-shadow: none !important; }
 
 .footer {
   display: flex;
@@ -348,6 +363,11 @@ a {
 .blur {
   pointer-events: none; }
 
+.btn-loading-on {
+  background-color: #a3a1a1 !important;
+  cursor: default !important;
+  box-shadow: none !important; }
+
 .nam__list__boxed {
   width: 200px;
   height: 330px;
@@ -438,6 +458,8 @@ a {
       cursor: pointer; }
       .popup-product .popup-bottom .popup-to-cart:hover {
         box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; }
+      .popup-product .popup-bottom .popup-to-cart a {
+        display: block; }
     .popup-product .popup-bottom .popup-buying {
       width: 50%;
       margin: 5px;
@@ -502,6 +524,11 @@ a {
 
 .blur {
   pointer-events: none; }
+
+.btn-loading-on {
+  background-color: #a3a1a1 !important;
+  cursor: default !important;
+  box-shadow: none !important; }
 
 .opacity-20 {
   opacity: 20%; }

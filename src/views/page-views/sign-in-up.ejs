@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SONO perfume</title>
+    <%- include('supplement/ion-jquery'); -%>
+
+        <link rel="stylesheet" href="../../public/css/page-css/sign-in-up.css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <%- include('supplement/header', {data: data.info, account: data.account}); -%>
+            <div class="container">
+                <% if(content=="sign-up" ){ %>
+                    <%- include('supplement/sign-up', {data: data.info}); -%>
+                        <% } %>
+                            <% if(content=="sign-in" ){ %>
+                                <%- include('supplement/sign-in', {data: data.info}); -%>
+                                    <% } %>
+                                        <% if(content=="lay-pass" ){ %>
+                                            <%- include('supplement/lay-pass', {data: data.info}); -%>
+                                                <% } %>
+                                                    <% if(content=="lay-pass-verify" ){ %>
+                                                        <%- include('supplement/lay-pass-verify', {data: data.info,
+                                                            email: data.email}); -%>
+                                                            <% } %>
+            </div>
+
+            <%- include('supplement/footer', {data: data.info}) -%>
+
+                <%- include('supplement/call-mess', {data: data.info}) -%>
+
+
+    </div>
+    <script src="../../public/js/page-js/header-toggle.js"></script>
+    <script src="../../public/js/page-js/sign.js"></script>
+
+</body>
+
+</html>

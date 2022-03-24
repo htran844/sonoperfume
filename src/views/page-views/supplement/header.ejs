@@ -16,21 +16,40 @@
                         </span>
                     </div>
                 </div>
-                <div class="header__top__log">
-                    <div class="header__top__log--login">
+                <% if(account){ %>
+                    <div class="header__top__log">
+                        <div class="header__top__log--login">
+                            <a href="/tai-khoan">
+                                <ion-icon name="person-outline"></ion-icon>
+                                <span>
+                                    <%= account.name %>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="header__top__log--register">
+                            <a href="/dang-xuat" id="logout">
+                                <ion-icon name="log-out-outline"></ion-icon>
+                                <span>Đăng xuất</span>
+                            </a>
+                        </div>
+                    </div>
+                    <%} else{ %>
+                        <div class="header__top__log">
+                            <div class="header__top__log--login">
+                                <a href="/dang-nhap">
+                                    <ion-icon name="lock-open-outline"></ion-icon>
+                                    <span>Đăng nhập</span>
+                                </a>
+                            </div>
+                            <div class="header__top__log--register">
+                                <a href="/dang-ky">
+                                    <ion-icon name="person-add-outline"></ion-icon>
+                                    <span>Đăng ký</span>
+                                </a>
+                            </div>
+                        </div>
+                        <% } %>
 
-                        <a href="#">
-                            <ion-icon name="lock-open-outline"></ion-icon>
-                            <span>Đăng nhập</span>
-                        </a>
-                    </div>
-                    <div class="header__top__log--register">
-                        <a href="#">
-                            <ion-icon name="person-add-outline"></ion-icon>
-                            <span>Đăng ký</span>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="header__mid">

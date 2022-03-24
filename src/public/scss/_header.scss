@@ -250,7 +250,11 @@
   }
 }
 /*Iphone(480 x 640)*/
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 280px) {
+  .header__mid__logo {
+    margin-left: 30px !important;
+    margin-right: 30px !important;
+  }
 }
 /*Smart phone nhỏ*/
 @media screen and (max-width: 240px) {

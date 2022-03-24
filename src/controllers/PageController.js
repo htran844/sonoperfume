@@ -5,8 +5,17 @@ const {
   getOneBySlug,
 } = require("../services/_productService");
 const { getAllBrand } = require("../services/_brandService");
+const { getAccountByToken } = require("../services/_accountService");
+var jwt = require("jsonwebtoken");
 module.exports.getHome = async (req, res) => {
   try {
+    let account = "";
+    if (req.cookies.token) {
+      account = await getAccountByToken(req.cookies.token);
+    } else {
+      account = "";
+    }
+
     const info = await getInfo();
     const products_nam = await getProductHome("Nam");
     let products_nu = await getProductHome("Nữ");
@@ -31,6 +40,7 @@ module.exports.getHome = async (req, res) => {
     res.render("page-views/home", {
       content: "home",
       data: {
+        account: account,
         info: info,
         products_nam: products_nam,
         products_nu: products_nu,
@@ -104,6 +114,12 @@ module.exports.getProducts = async (req, res) => {
       sort = "none";
     }
     delete req.query.sort;
+    let account = "";
+    if (req.cookies.token) {
+      account = await getAccountByToken(req.cookies.token);
+    } else {
+      account = "";
+    }
     const info = await getInfo();
     const brands = await getAllBrand();
     let products = await getAllProduct(req.query, page, 16, sort);
@@ -127,6 +143,7 @@ module.exports.getProducts = async (req, res) => {
     res.render("page-views/products", {
       content: "products",
       data: {
+        account: account,
         info: info,
         brands: brands,
         brand: brand,
@@ -145,6 +162,13 @@ module.exports.getProducts = async (req, res) => {
 };
 module.exports.getOneProductBySlug = async (req, res) => {
   try {
+    let account = "";
+    if (req.cookies.token) {
+      account = await getAccountByToken(req.cookies.token);
+    } else {
+      account = "";
+    }
+
     const info = await getInfo();
     const slug = req.params.slug;
     let product = await getOneBySlug(slug);
@@ -163,7 +187,103 @@ module.exports.getOneProductBySlug = async (req, res) => {
     newProduct.refundcost = newRefundCost;
     res.render("page-views/product-detail", {
       content: "product-detail",
-      data: { info, product: newProduct },
+      data: { account, info, product: newProduct },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getSignUp = async (req, res) => {
+  try {
+    const info = await getInfo();
+    res.render("page-views/sign-in-up", {
+      content: "sign-up",
+      data: {
+        info: info,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getSignIn = async (req, res) => {
+  try {
+    const info = await getInfo();
+    res.render("page-views/sign-in-up", {
+      content: "sign-in",
+      data: {
+        info: info,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getLayPass = async (req, res) => {
+  try {
+    const info = await getInfo();
+    res.render("page-views/sign-in-up", {
+      content: "lay-pass",
+      data: {
+        info: info,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getAccountPage = async (req, res) => {
+  try {
+    let account = "";
+    if (req.cookies.token) {
+      account = await getAccountByToken(req.cookies.token);
+    } else {
+      account = "";
+    }
+    const info = await getInfo();
+    res.render("page-views/account", {
+      content: "account",
+      data: {
+        account: account,
+        info: info,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getCartPage = async (req, res) => {
+  try {
+    let account = "";
+    if (req.cookies.token) {
+      account = await getAccountByToken(req.cookies.token);
+    } else {
+      account = "";
+    }
+
+    const info = await getInfo();
+    res.render("page-views/cart", {
+      content: "cart",
+      data: {
+        account: account,
+        info: info,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getThanhToan = async (req, res) => {
+  try {
+    let account = "";
+    if (req.cookies.token) {
+      account = await getAccountByToken(req.cookies.token);
+    } else {
+      account = "";
+    }
+    res.render("page-views/thanh-toan", {
+      content: "thanhtoan",
+      data: { account },
     });
   } catch (error) {
     throw error;

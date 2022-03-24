@@ -1,0 +1,5 @@
+const router = require("express").Router();
+const OrderController = require("../controllers/OrderController");
+router.post("/api/create", OrderController.createOrder);
+router.get("/api/get-all", OrderController.getAllOrder);
+module.exports = router;

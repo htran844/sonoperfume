@@ -46,10 +46,11 @@ function handle_mua(slug) {
   show_popup();
   let url = window.location.href;
   let quantity = 0;
-  if (url.length < 40) {
+  let ip = document.querySelector(".inp-sl");
+  if (!ip) {
     quantity = 1;
   } else {
-    const quantity = Number(document.querySelector(".inp-sl").value);
+    quantity = Number(document.querySelector(".inp-sl").value);
   }
 
   let newProduct = {
@@ -88,3 +89,8 @@ function dem_cart() {
   document.querySelector(".header__mid_cart--count").innerHTML = count;
 }
 dem_cart();
+$("#logout").click((e) => {
+  e.preventDefault();
+  document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+  window.location.href = "/";
+});

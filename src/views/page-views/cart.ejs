@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SONO perfume</title>
+    <%- include('supplement/ion-jquery'); -%>
+
+        <link rel="stylesheet" href="../../public/css/page-css/cart.css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <%- include('supplement/header', {data: data.info, account: data.account}); -%>
+            <div class="container">
+                <section class="breadcrumb">
+                    <ul>
+                        <li><a href="/">Trang chủ</a></li>
+                        <li>> Giỏ hàng</li>
+                    </ul>
+                </section>
+                <div class="cart-wraper">
+                    <table class="table-content">
+
+
+
+                    </table>
+                    <div class="cart-bottom">
+                        <div class="cart-bottom__right">
+                            <table>
+                                <tr>
+                                    <td class="refun text-right">Tổng số sản phẩm:</td>
+                                    <td class="text-left"><span id="totalproduct">0</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="refun text-right">Tiền cộng vào ví SONO:</td>
+                                    <td class="text-left"><span class="boder-yellow" id="totalrefund">0</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="total text-right">Tiền hàng tổng cộng:</td>
+                                    <td class="text-left"><span class="boder-green" id="totalcost">0</span></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><button class="btn thanhtoan">Tiến hành đặt hàng</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <%- include('supplement/footer', {data: data.info}) -%>
+
+                <%- include('supplement/call-mess', {data: data.info}) -%>
+
+
+    </div>
+    <script src="../../public/js/page-js/header-toggle.js"></script>
+    <script src="../../public/js/page-js/cart.js"></script>
+
+</body>
+
+</html>

@@ -7,6 +7,7 @@ const {
   changeStatus,
   getOneByID,
   getAllProduct,
+  getOneBySlug,
 } = require("../services/_productService");
 module.exports.createProduct = async (req, res) => {
   try {
@@ -115,6 +116,45 @@ module.exports.getAllProductAdmin = async (req, res) => {
     } else {
       return res.status(200).json({ status: "success", data: result });
     }
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getOneBySlug = async (req, res) => {
+  try {
+    const slug = req.query.slug;
+    let result = await getOneBySlug(slug);
+    if (!result) {
+      return res.status(201).json({ status: "fail", data: "" });
+    } else {
+      return res.status(200).json({ status: "success", data: result });
+    }
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getAllCart = async (req, res) => {
+  try {
+    let list = req.query.list;
+    if (list) {
+      list = await Promise.all(
+        list.map(async (data) => {
+          let product = await getOneBySlug(data.slug);
+          return {
+            slug: data.slug,
+            image: product.image,
+            name: product.name,
+            cost: product.cost,
+            quantity: Number(data.quantity),
+            refund: product.refundcost,
+          };
+        })
+      );
+    } else {
+      return res.status(201).json({ status: "fail", data: "" });
+    }
+
+    return res.status(200).json({ status: "success", data: list });
   } catch (error) {
     throw error;
   }

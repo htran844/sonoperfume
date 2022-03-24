@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SONO perfume</title>
+    <%- include('supplement/ion-jquery'); -%>
+        <link rel="stylesheet" href="../../public/css/page-css/thanh-toan.css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="flex-all">
+                <div class="product-info">
+                    <div class="product__title">
+                        <h3>Đơn hàng <span id="total-quantity">0</span> sản phẩm</h3>
+                    </div>
+                    <div class="pr_sp_render">
+
+
+                    </div>
+
+                    <div class="product__promo">
+                        <input type="text" id="promo" placeholder="Nhập mã giảm giá">
+                        <button>Áp dụng</button>
+                    </div>
+
+                    <div class="product__money">
+
+                        <div class="tamtinh mn-flex">
+                            <div>Tạm tính</div>
+                            <div id="total_cost">0</div>
+                        </div>
+                        <div class="phivanchuyen mn-flex">
+                            <div>Phí vận chuyển</div>
+                            <div>35.000 đ</div>
+                        </div>
+                        <div class="right__visono mn-flex">
+                            <div>
+                                <label for="vi-sono">Sử dụng số dư ví Sono:</label>
+                                <input type="checkbox" name="" id="vi-sono">
+                            </div>
+                            <div><span class="visono gray">- <%= data.account.wallet %> đ</span></div>
+                        </div>
+                        <div class="tongcong mn-flex">
+                            <div>Tổng cộng</div>
+                            <h3 id="cost_end">0 </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="address">
+                    <h3>Thông tin nhận hàng</h3>
+                    <div class="address__name mt-1">
+                        <label for="name">Tên người nhận:</label>
+                        <input type="text" id="name" class="input-text" value="<%= data.account.name %>">
+                    </div>
+                    <div class="address__email mt-1">
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" class="input-text" value="<%= data.account.email %>" readonly>
+                    </div>
+                    <div class="address__phone mt-1">
+                        <label for="phone">Điện thoại:</label>
+                        <input type="text" id="phone" class="input-text" value="<%= data.account.phone %>">
+                    </div>
+                    <div class="address__address mt-1">
+                        <label for="address">Địa chỉ:</label>
+                        <textarea id="address" class="input-text"
+                            placeholder="Địa chỉ càng cụ thể thì shiper giao càng nhanh"><%= data.account.address %></textarea>
+                    </div>
+                    <div class="address__address mt-1">
+                        <label for="note">Ghi chú:</label>
+                        <textarea id="note" class="input-text" placeholder="Ghi lưu ý cho shop và shiper"></textarea>
+                    </div>
+
+                </div>
+                <div class="payment">
+                    <div class="payment-con">
+                        <form>
+                            <label class="pd-10">
+                                <input type="radio" name="payment" value="cod">
+                                <span>Thanh toán khi nhận hàng (COD)</span>
+                            </label>
+                            <div class="bank">
+                                <label>
+                                    <input id="bank" type="radio" name="payment" value="transfer">
+                                    <span>Chuyển khoản ngân hàng</span>
+                                </label>
+                                <div class="bank-info">
+                                    <p>Ngân hàng vietinbank</p>
+                                    <p>Số tài khoản: 324624624757</p>
+                                    <p>Chủ tài khoản: Trần Việt Hoàng</p>
+                                    <p>Nội dung là số điện thoại đặt hàng</p>
+                                    <p>Đơn hàng sẽ được gửi khi nhận được thanh toán từ quý khách</p>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="product__buy">
+                        <div class="back-to-cart"><a href="/gio-hang">
+                                << Quay về giỏ hàng</a>
+                        </div>
+                        <button class="btn-dathang" id="btn-dh">Đặt hàng</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="../../public/js/page-js/thanh-toan.js"></script>
+</body>
+
+</html>

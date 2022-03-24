@@ -36,3 +36,8 @@ a {
 .blur {
   pointer-events: none;
 }
+.btn-loading-on {
+  background-color: $grayColor !important;
+  cursor: default !important;
+  box-shadow: none !important;
+}
