@@ -76,10 +76,18 @@ module.exports.getAllOrder = async (req, res) => {
     if (typeof page === "undefined") {
       page = 1;
     }
-    let result = await getAllOrder(email, phone, page, 5);
+    let status = { status: req.query.status };
+    if (typeof req.query.status === "undefined") {
+      status = {};
+    }
+    let result = await getAllOrder(email, phone, page, 5, status);
 
     if (result) {
-      return res.status(200).json({ message: "success", data: result.result });
+      return res.status(200).json({
+        message: "success",
+        lengthPage: result.lengthPage,
+        data: result.result,
+      });
     } else {
       return res.status(201).json({ message: "fail", data: "" });
     }

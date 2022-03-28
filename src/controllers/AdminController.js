@@ -5,6 +5,7 @@ const {
 } = require("../services/_accountService");
 const { getInfo } = require("../services/_infoService");
 const { getAllBrand } = require("../services/_brandService");
+const { getAllOrder, getOneOrderById } = require("../services/_orderService");
 module.exports.getAdminDashboard = async (req, res) => {
   try {
     res.render("admin-views/admin-base", {
@@ -151,6 +152,50 @@ module.exports.getAdminBrand = async (req, res) => {
     res.render("admin-views/info-base", {
       content: "brands",
       data: brands,
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getAdminOrder = async (req, res) => {
+  try {
+    let data = {};
+    let phone = req.query.phone;
+    if (typeof phone != "undefined") {
+      data.phone = phone;
+    }
+    let email = req.query.email;
+    if (typeof email != "undefined") {
+      data.email = email;
+    }
+    let page = req.query.page;
+    // luc moi truy cap trang thi set page =1
+    if (typeof page === "undefined") {
+      page = 1;
+    }
+    let status = { status: req.query.status };
+    if (typeof req.query.status === "undefined") {
+      status = {};
+    }
+    let result = await getAllOrder(email, phone, page, 500, status);
+
+    res.render("admin-views/order-views/order-view", {
+      content: "order-main",
+      data: {
+        listOrder: result.result,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports.getAdminOrderDetail = async (req, res) => {
+  try {
+    let _id = req.params.id;
+    let result = await getOneOrderById(_id);
+    res.render("admin-views/order-views/order-view", {
+      content: "order-detail",
+      data: result,
     });
   } catch (error) {
     throw error;

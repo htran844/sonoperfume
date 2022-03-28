@@ -1,0 +1,51 @@
+.border-red {
+  border: 2px solid red;
+}
+.border-blue {
+  border: 2px solid blue;
+}
+.border-yellow {
+  border: 2px solid yellow;
+}
+.border-green {
+  border: 2px solid lightgreen;
+}
+.event-none {
+  pointer-events: none;
+}
+.img-25px {
+  width: 50px;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.white-box {
+  padding: 10px;
+  .header-table {
+    display: flex;
+    justify-content: space-between;
+    .search {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.table-responsive {
+  margin-top: 20px;
+}
+.table {
+  width: 100%;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+.content-order {
+  width: 60%;
+  input {
+    width: 100%;
+  }
+}

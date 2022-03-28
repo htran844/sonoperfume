@@ -17,21 +17,23 @@ exports.updateOrder = async (orderId, order) => {
 };
 exports.getOneOrderById = async (orderId) => {
   try {
-    return await OrderModel.findOne({ _id: orderId }).populate("Account");
+    return await OrderModel.findOne({ _id: orderId }).populate("accountId");
   } catch (error) {
     throw error;
   }
 };
-exports.getAllOrder = async (email, phone, page, PAGE_SIZE) => {
+exports.getAllOrder = async (email, phone, page, PAGE_SIZE, status) => {
   try {
     if (email && phone) {
       let lengthPage = await OrderModel.find({
         email: { $regex: email, $options: "i" },
         phone: { $regex: phone, $options: "i" },
+        ...status,
       }).countDocuments();
       let result = await OrderModel.find({
         email: { $regex: email, $options: "i" },
         phone: { $regex: phone, $options: "i" },
+        ...status,
       })
         .skip(PAGE_SIZE * (page - 1))
         .limit(PAGE_SIZE)
@@ -40,9 +42,11 @@ exports.getAllOrder = async (email, phone, page, PAGE_SIZE) => {
     } else if (email) {
       let lengthPage = await OrderModel.find({
         email: { $regex: email, $options: "i" },
+        ...status,
       }).countDocuments();
       let result = await OrderModel.find({
         email: { $regex: email, $options: "i" },
+        ...status,
       })
         .skip(PAGE_SIZE * (page - 1))
         .limit(PAGE_SIZE)
@@ -51,17 +55,19 @@ exports.getAllOrder = async (email, phone, page, PAGE_SIZE) => {
     } else if (phone) {
       let lengthPage = await OrderModel.find({
         phone: { $regex: phone, $options: "i" },
+        ...status,
       }).countDocuments();
       let result = await OrderModel.find({
         phone: { $regex: phone, $options: "i" },
+        ...status,
       })
         .skip(PAGE_SIZE * (page - 1))
         .limit(PAGE_SIZE)
         .sort({ createdAt: -1 });
       return { lengthPage, result };
     } else {
-      let lengthPage = await OrderModel.find().countDocuments();
-      let result = await OrderModel.find()
+      let lengthPage = await OrderModel.find({ ...status }).countDocuments();
+      let result = await OrderModel.find({ ...status })
         .skip(PAGE_SIZE * (page - 1))
         .limit(PAGE_SIZE)
         .sort({ createdAt: -1 });

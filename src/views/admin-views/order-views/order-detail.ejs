@@ -1,0 +1,197 @@
+<div class="container-content ">
+    <div class="name-page ">
+        <div class="container-2">
+            Chi tiết đơn
+        </div>
+    </div>
+    <div class="content ">
+        <div class="content-order">
+            <h4>Đơn hàng: <span id="_id" orderID="<%= data._id %>">
+                    <%= data._id %>
+                </span></h4>
+            <div class="ele">
+                <div class="name-ele">
+                    Email
+                </div>
+                <input type="text" value="<%= data.email %>" id="email">
+            </div>
+            <div class="ele">
+                <div class="name-ele">
+                    Tên
+                </div>
+                <input type="text" value="<%= data.name %>" id="name">
+            </div>
+            <div class="ele">
+                <div class="name-ele">
+                    Điện thoại
+                </div>
+                <input type="text" value="<%= data.phone %>" id="phone">
+            </div>
+            <div class="ele">
+                <div class="name-ele">
+                    Địa chỉ
+                </div>
+                <input type="text" value="<%= data.address %>" id="address">
+            </div>
+            <div class="ele">
+                <div class="name-ele">
+                    Lời nhắn
+                </div>
+                <input type="text" value="<%= data.message %>" id="message">
+            </div>
+            <div class="ele">
+                <div class="name-ele">
+                    Tổng tiền
+                </div>
+                <input type="text" value="<%= data.totalCost %>" id="totalCost">
+            </div>
+            <div class="ele">
+                <div class="name-ele">
+                    Tiền cộng vào ví
+                </div>
+                <input type="text" value="<%= data.refundcost %>" id="refundcost">
+            </div>
+            <div class="ele flex">
+                <div class="name-ele">
+                    <span>Ví sono: </span>
+                    <% if(data.visono==true){ %>
+                        <span>Có dùng</span>
+                        <% } else { %>
+                            <span>Không</span>
+                            <% } %>
+                </div>
+                <div class="name-ele">
+                    <span>Phương thức thanh toán: </span>
+                    <input type="text" value="<%= data.payment %>" id="payment">
+                </div>
+
+            </div>
+            <div class="ele">
+                <div class="name-ele">
+                    Trạng thái
+                </div>
+                <% if(data.status=="waiting" ){ %>
+                    <select name="status-order" class="" id="status">
+                        <option value="waiting" selected>Đang chờ</option>
+                        <option value="delivery">Đang giao</option>
+                        <option value="canceled">Đã hủy</option>
+                        <option value="refund">Đơn hoàn</option>
+                        <option value="success">Thành công</option>
+                    </select>
+                    <% } else if(data.status=="delivery" ){ %>
+                        <select name="status-order" class="border-blue" id="status">
+                            <option value="waiting">Đang chờ</option>
+                            <option value="delivery" selected>Đang giao</option>
+                            <option value="canceled">Đã hủy</option>
+                            <option value="refund">Đơn hoàn</option>
+                            <option value="success">Thành công</option>
+                        </select>
+                        <% }else if(data.status=="canceled" ){ %>
+                            <select name="status-order" class="border-red" id="status">
+                                <option value="waiting">Đang chờ</option>
+                                <option value="delivery">Đang giao</option>
+                                <option value="canceled" selected>Đã hủy</option>
+                                <option value="refund">Đơn hoàn</option>
+                                <option value="success">Thành công</option>
+                            </select>
+                            <% }else if(data.status=="refund" ){ %>
+                                <select name="status-order" class="border-yellow" id="status">
+                                    <option value="waiting">Đang chờ</option>
+                                    <option value="delivery">Đang giao</option>
+                                    <option value="canceled">Đã hủy</option>
+                                    <option value="refund" selected>Đơn hoàn</option>
+                                    <option value="success">Thành công</option>
+                                </select>
+                                <% }else if(data.status=="success" ){ %>
+                                    <select name="status-order" class="border-green" id="status">
+                                        <option value="waiting">Đang chờ</option>
+                                        <option value="delivery">Đang giao</option>
+                                        <option value="canceled">Đã hủy</option>
+                                        <option value="refund">Đơn hoàn</option>
+                                        <option value="success" selected>Thành công</option>
+                                    </select>
+                                    <% } else{ %>
+                                        <span id="status">- có lỗi-</span>
+
+                                        <% } %>
+            </div>
+            <div class="ele">
+                <button class="btn-capnhat">Cập nhật</button>
+            </div>
+        </div>
+        <div class="content-account">
+            <h4>Tài khoản</h4>
+
+            <div class="ele">
+                <div class="name-ele">Email</div>
+                <div class="name-ele">
+                    <%= data.accountId.email %>
+                </div>
+            </div>
+            <div class="ele">
+                <div class="name-ele">Tên</div>
+                <div class="name-ele">
+                    <%= data.accountId.name %>
+                </div>
+            </div>
+            <div class="ele">
+                <div class="name-ele">Điện thoại</div>
+                <div class="name-ele">
+                    <%= data.accountId.phone %>
+                </div>
+            </div>
+            <div class="ele">
+                <div class="name-ele">Địa chỉ</div>
+                <div class="name-ele">
+                    <%= data.accountId.address %>
+                </div>
+            </div>
+            <div class="ele">
+                <div class="name-ele">Tiền trong ví</div>
+                <div class="name-ele">
+                    <%= data.accountId.wallet %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="detail-product">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ảnh</th>
+                    <th>Tên</th>
+                    <th>Giá</th>
+                    <th>Tiền cộng ví</th>
+                    <th>Số lượng</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% data.listProduct.forEach((product, index)=>{ %>
+                    <tr>
+                        <td>
+                            <%= index+1 %>
+                        </td>
+                        <td>
+                            <img src="<%= product.image %>" alt="" class="img-25px">
+                        </td>
+                        <td>
+                            <%= product.name %>
+                        </td>
+                        <td>
+                            <%= product.cost %>
+                        </td>
+                        <td>
+                            <%= product.refund %>
+                        </td>
+                        <td>
+                            <%= product.quantity %>
+                        </td>
+                    </tr>
+                    <% }) %>
+
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,139 @@
+<div class="container-content ">
+    <div class="name-page ">
+        <div class="container-2">
+            Đơn hàng
+        </div>
+    </div>
+    <div class="content ">
+        <div class="white-box">
+            <div class="header-table">
+                <div class="search">
+                    <div>
+                        <input type="text" placeholder="tìm theo email.." value="">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="tìm theo sdt.." value="">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+
+                </div>
+                <div class="table-right">
+                    <select name="status" id="">
+                        <option value="waiting">Đang chờ</option>
+                        <option value="delivery">Đang giao</option>
+                        <option value="canceled">Đã hủy</option>
+                        <option value="refund">Đơn hoàn</option>
+                        <option value="success">Thành công</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="border-top-0">#</th>
+                            <th class="border-top-0">Email</th>
+                            <th class="border-top-0">Tên</th>
+                            <th class="border-top-0">SDT</th>
+                            <th class="border-top-0">Địa chỉ</th>
+                            <th class="border-top-0">Tổng tiền</th>
+                            <th class="border-top-0">Trạng thái</th>
+                            <th class="border-top-0">
+                                Chi tiết
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data.listOrder.forEach((order, index)=>{ %>
+                            <tr>
+                                <td>
+                                    <%= index+1 %>
+                                </td>
+                                <td>
+                                    <%= order.email %>
+                                </td>
+                                <td>
+                                    <%= order.name %>
+                                </td>
+                                <td>
+                                    <%= order.phone %>
+                                </td>
+                                <td>
+                                    <%= order.address %>
+                                </td>
+                                <td>
+                                    <%= order.totalCost.toLocaleString() %>
+                                </td>
+                                <td>
+                                    <% if(order.status=="waiting" ){ %>
+                                        <select name="status-order" id="" class="event-none">
+                                            <option value="waiting" selected>Đang chờ</option>
+                                            <option value="delivery">Đang giao</option>
+                                            <option value="canceled">Đã hủy</option>
+                                            <option value="refund">Đơn hoàn</option>
+                                            <option value="success">Thành công</option>
+                                        </select>
+                                        <% } else if(order.status=="delivery" ){ %>
+                                            <select name="status-order" id="" class="border-blue event-none">
+                                                <option value="waiting">Đang chờ</option>
+                                                <option value="delivery" selected>Đang giao</option>
+                                                <option value="canceled">Đã hủy</option>
+                                                <option value="refund">Đơn hoàn</option>
+                                                <option value="success">Thành công</option>
+                                            </select>
+                                            <% }else if(order.status=="canceled" ){ %>
+                                                <select name="status-order" id="" class="border-red event-none">
+                                                    <option value="waiting">Đang chờ</option>
+                                                    <option value="delivery">Đang giao</option>
+                                                    <option value="canceled" selected>Đã hủy</option>
+                                                    <option value="refund">Đơn hoàn</option>
+                                                    <option value="success">Thành công</option>
+                                                </select>
+                                                <% }else if(order.status=="refund" ){ %>
+                                                    <select name="status-order" id="" class="border-yellow event-none">
+                                                        <option value="waiting">Đang chờ</option>
+                                                        <option value="delivery">Đang giao</option>
+                                                        <option value="canceled">Đã hủy</option>
+                                                        <option value="refund" selected>Đơn hoàn</option>
+                                                        <option value="success">Thành công</option>
+                                                    </select>
+                                                    <% }else if(order.status=="success" ){ %>
+                                                        <select name="status-order" id=""
+                                                            class="border-green event-none">
+                                                            <option value="waiting">Đang chờ</option>
+                                                            <option value="delivery">Đang giao</option>
+                                                            <option value="canceled">Đã hủy</option>
+                                                            <option value="refund">Đơn hoàn</option>
+                                                            <option value="success" selected>Thành công</option>
+                                                        </select>
+                                                        <% } else{ %>
+                                                            - có lỗi-
+                                                            <% } %>
+
+                                </td>
+
+                                <td class="action">
+                                    <div class="edit-account">
+                                        <a href="/admin/order/<%= order._id %>"><i class="fa fa-pencil-square-o"
+                                                aria-hidden="true"></i></a>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <% }) %>
+
+
+
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
